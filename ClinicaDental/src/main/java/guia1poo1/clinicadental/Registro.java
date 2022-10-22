@@ -4,6 +4,7 @@
  */
 package guia1poo1.clinicadental;
 
+import Conexion.Conexion;
 import java.awt.Color;
 import java.util.Calendar;
 import java.util.Date;
@@ -22,7 +23,9 @@ public class Registro extends javax.swing.JFrame {
         getContentPane().setBackground(new Color(131,207,227));
        Date date = new Date();
         dcRegistro.setDate(date);
-        
+        //Conectar
+        Conexion c = new Conexion();
+        c.EstableceConexion();
     }
 
     /**
@@ -42,7 +45,7 @@ public class Registro extends javax.swing.JFrame {
         lblNombre = new javax.swing.JLabel();
         lblApellido = new javax.swing.JLabel();
         dcRegistro = new com.toedter.calendar.JDateChooser();
-        jLabel1 = new javax.swing.JLabel();
+        lblFechaRegistro = new javax.swing.JLabel();
         dcFechaNac = new com.toedter.calendar.JDateChooser();
         lblFechaNAc = new javax.swing.JLabel();
         txtDUI = new javax.swing.JTextField();
@@ -83,7 +86,7 @@ public class Registro extends javax.swing.JFrame {
 
         dcRegistro.setEnabled(false);
 
-        jLabel1.setText("Fecha Registro");
+        lblFechaRegistro.setText("Fecha Registro");
 
         lblFechaNAc.setText("Fecha de nacimiento");
 
@@ -138,7 +141,7 @@ public class Registro extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(dcRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
+                            .addComponent(lblFechaRegistro))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(dcFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -205,7 +208,7 @@ public class Registro extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(dcRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1))
+                        .addComponent(lblFechaRegistro))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(dcFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -322,12 +325,12 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbSucursal;
     private com.toedter.calendar.JDateChooser dcFechaNac;
     private com.toedter.calendar.JDateChooser dcRegistro;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblCerrar;
     private javax.swing.JLabel lblClave;
     private javax.swing.JLabel lblDUI;
     private javax.swing.JLabel lblFechaNAc;
+    private javax.swing.JLabel lblFechaRegistro;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblSucursal;
     private javax.swing.JLabel lblTelefono;

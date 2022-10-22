@@ -4,6 +4,7 @@
  */
 package guia1poo1.clinicadental;
 
+import Conexion.Conexion;
 import java.awt.Color;
 
 /**
@@ -18,6 +19,8 @@ public class Ingreso extends javax.swing.JFrame {
     public Ingreso() {
         initComponents();
         getContentPane().setBackground(new Color(131,207,227));
+        Conexion c = new Conexion();
+        c.EstableceConexion();
     }
 
     /**
