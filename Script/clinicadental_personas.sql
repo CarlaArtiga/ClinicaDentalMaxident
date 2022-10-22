@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `clinicadental` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `clinicadental`;
 -- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
 -- Host: localhost    Database: clinicadental
@@ -25,25 +27,25 @@ DROP TABLE IF EXISTS `personas`;
 CREATE TABLE `personas` (
   `CodPersona` int NOT NULL AUTO_INCREMENT,
   `CodUsuarios` int NOT NULL,
-  `CodCargos` int NOT NULL,
+  `NumCargos` int DEFAULT NULL,
   `CodSucursal` int NOT NULL,
-  `Nombre` varchar(45) NOT NULL,
-  `Apellido` varchar(45) NOT NULL,
-  `FechaNac` date NOT NULL,
-  `FechaRegistro` date NOT NULL,
-  `DUI` int NOT NULL,
-  `Telefono` int NOT NULL,
-  `Direccion` varchar(45) NOT NULL,
-  `Estado` char(1) NOT NULL,
+  `Nombre` varchar(45) DEFAULT NULL,
+  `Apellido` varchar(45) DEFAULT NULL,
+  `FechaNac` date DEFAULT NULL,
+  `FechaRegistro` date DEFAULT NULL,
+  `DUI` int DEFAULT NULL,
+  `Telefono` int DEFAULT NULL,
+  `Direccion` varchar(45) DEFAULT NULL,
+  `Estado` char(1) DEFAULT NULL,
   PRIMARY KEY (`CodPersona`),
   UNIQUE KEY `DUI_UNIQUE` (`DUI`),
   UNIQUE KEY `Telefono_UNIQUE` (`Telefono`),
   KEY `CodUsuarios_idx` (`CodUsuarios`),
-  KEY `CodCargos_idx` (`CodCargos`),
   KEY `CodSucursal_idx` (`CodSucursal`),
-  CONSTRAINT `CodCargos` FOREIGN KEY (`CodCargos`) REFERENCES `cargos` (`CodCargos`),
+  KEY `NumCargos_idx` (`NumCargos`),
   CONSTRAINT `CodSucursal` FOREIGN KEY (`CodSucursal`) REFERENCES `sucursales` (`CodSucursal`),
-  CONSTRAINT `CodUsuarios` FOREIGN KEY (`CodUsuarios`) REFERENCES `usuarios` (`CodUsuarios`)
+  CONSTRAINT `CodUsuarios` FOREIGN KEY (`CodUsuarios`) REFERENCES `usuarios` (`CodUsuarios`),
+  CONSTRAINT `fk_personas_cargo` FOREIGN KEY (`NumCargos`) REFERENCES `cargos` (`NumCargos`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -66,4 +68,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-14 15:16:19
+-- Dump completed on 2022-10-21 20:38:42
