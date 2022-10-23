@@ -4,19 +4,24 @@
  */
 package guia1poo1.clinicadental;
 
+import edu.ujmd.clinicadental.clases.Login;
 import Conexion.Conexion;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author LENOVO
  */
 public class Ingreso extends javax.swing.JFrame {
+    Login log;
 
     /**
      * Creates new form Ingreso
      */
     public Ingreso() {
+        
+        log = new Login();
         initComponents();
         getContentPane().setBackground(new Color(131,207,227));
         Conexion c = new Conexion();
@@ -68,6 +73,11 @@ public class Ingreso extends javax.swing.JFrame {
         });
 
         btnIngresar.setText("Ingresar");
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarActionPerformed(evt);
+            }
+        });
 
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -186,6 +196,16 @@ public class Ingreso extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_lblSalirMouseClicked
+
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        // TODO add your handling code here:
+        Boolean resultado = null;
+        resultado = log.IngresarUsuario(
+                txtUsuario.getText(),
+                Integer.parseInt(txtClave.getText())); 
+        //CargarDatosLocal();
+        JOptionPane.showMessageDialog(null, resultado);
+    }//GEN-LAST:event_btnIngresarActionPerformed
 
     /**
      * @param args the command line arguments

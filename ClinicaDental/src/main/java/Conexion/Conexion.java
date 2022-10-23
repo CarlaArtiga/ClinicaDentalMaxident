@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class Conexion {
     Connection conectar = null;
     String usuario = "root";
-    String clave = "12345";
+    String clave = "castillo999";
     String bd = "clinicadental";
     String ip = "localhost";
     String puerto = "3306";
@@ -24,7 +24,7 @@ public class Conexion {
     
     public Connection EstableceConexion (){
         try{
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             conectar = DriverManager.getConnection(cadena,usuario,clave);
             //JOptionPane.showMessageDialog(null, "Conexion exitosa");
         }catch(Exception e){
