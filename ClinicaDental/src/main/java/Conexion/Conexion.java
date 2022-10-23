@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class Conexion {
     Connection conectar = null;
     String usuario = "root";
-    String clave = "castillo999";
+    String clave = "12345";
     String bd = "clinicadental";
     String ip = "localhost";
     String puerto = "3306";
