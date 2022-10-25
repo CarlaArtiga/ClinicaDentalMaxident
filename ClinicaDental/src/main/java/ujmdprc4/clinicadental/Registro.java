@@ -4,29 +4,59 @@
  */
 package ujmdprc4.clinicadental;
 
+import Clases.ClaseRegistro;
+import Clases.ComboSucursal;
 import Conexion.Conexion;
 import java.awt.Color;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Calendar;
 import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
  * @author LENOVO
  */
 public class Registro extends javax.swing.JFrame {
+    ClaseRegistro cr;
+    ComboSucursal cs;
+    
+    int indexcombo = 0;
+    DefaultComboBoxModel modeloCombo = new DefaultComboBoxModel();
+    
 
     /**
      * Creates new form Registro
      */
-    public Registro() {
+    public Registro() throws SQLException {
         initComponents();
+        //LLenarCombo();
         getContentPane().setBackground(new Color(131,207,227));
        Date date = new Date();
         dcRegistro.setDate(date);
         //Conectar
         Conexion c = new Conexion();
         c.EstableceConexion();
+        
+        
+        
+        
     }
+    public void LLenarCombo(){
+         Conexion c = new Conexion();
+         c.EstableceConexion();
+         String sql = cr.getSucursal();
+         try{
+             ResultSet res = c.Select(sql);
+             while(res.next()){
+                 this.cmbSucursal.addItem(res.getString("CodSucursal"));
+             }
+         }catch(Exception e){
+             
+         }
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,6 +91,8 @@ public class Registro extends javax.swing.JFrame {
         chkMostrarClave = new javax.swing.JCheckBox();
         lblCerrar = new javax.swing.JLabel();
         lblVerIngreso = new javax.swing.JLabel();
+        txtDireccion = new javax.swing.JTextField();
+        lblDireccion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -71,8 +103,6 @@ public class Registro extends javax.swing.JFrame {
         lblTitulo.setText("Bienvenido a Maxident");
 
         lblSucursal.setText("Elija la sucursal: ");
-
-        cmbSucursal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Santa Anta", "San Salvador" }));
 
         txtApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,55 +159,14 @@ public class Registro extends javax.swing.JFrame {
             }
         });
 
+        lblDireccion.setText("Direccion");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtNombre)
-                    .addComponent(txtApellido)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dcRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblFechaRegistro))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dcFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblFechaNAc)))
-                    .addComponent(txtDUI)
-                    .addComponent(txtTelefono)
-                    .addComponent(txtUsuario)
-                    .addComponent(pfClave)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNombre)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblSucursal)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cmbSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblApellido)
-                            .addComponent(lblDUI)
-                            .addComponent(lblUsuario)
-                            .addComponent(lblTelefono))
-                        .addGap(105, 105, 105))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblClave)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(chkMostrarClave)))
-                .addGap(0, 33, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnRegistro)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnLimpiar))
-                    .addComponent(lblVerIngreso))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(115, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lblCerrar)
@@ -185,6 +174,52 @@ public class Registro extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lblTitulo)
                         .addGap(44, 44, 44))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblUsuario)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNombre)
+                            .addComponent(txtApellido)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(dcRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblFechaRegistro))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(dcFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblFechaNAc)))
+                            .addComponent(txtDUI)
+                            .addComponent(txtTelefono)
+                            .addComponent(pfClave)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblClave)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(chkMostrarClave))
+                            .addComponent(txtDireccion)
+                            .addComponent(lblDireccion)
+                            .addComponent(lblNombre)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblSucursal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmbSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblApellido)
+                            .addComponent(lblDUI)
+                            .addComponent(lblTelefono)
+                            .addComponent(txtUsuario))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnRegistro)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLimpiar))
+                    .addComponent(lblVerIngreso))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,11 +256,15 @@ public class Registro extends javax.swing.JFrame {
                 .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblTelefono)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblDireccion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblUsuario)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pfClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -237,7 +276,7 @@ public class Registro extends javax.swing.JFrame {
                     .addComponent(btnLimpiar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblVerIngreso)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addGap(5, 5, 5)
                 .addComponent(lblCerrar)
                 .addContainerGap())
         );
@@ -329,6 +368,7 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel lblCerrar;
     private javax.swing.JLabel lblClave;
     private javax.swing.JLabel lblDUI;
+    private javax.swing.JLabel lblDireccion;
     private javax.swing.JLabel lblFechaNAc;
     private javax.swing.JLabel lblFechaRegistro;
     private javax.swing.JLabel lblNombre;
@@ -340,6 +380,7 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JPasswordField pfClave;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtDUI;
+    private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtTelefono;
     private javax.swing.JTextField txtUsuario;

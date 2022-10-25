@@ -201,7 +201,12 @@ public class Ingreso extends javax.swing.JFrame {
 
     private void lblVerRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVerRegistroMouseClicked
         // TODO add your handling code here:
-        Registro r = new Registro();
+        Registro r = null;
+        try {
+            r = new Registro();
+        } catch (SQLException ex) {
+            Logger.getLogger(Ingreso.class.getName()).log(Level.SEVERE, null, ex);
+        }
         r.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblVerRegistroMouseClicked

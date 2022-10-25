@@ -10,12 +10,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.sql.*;
 
 /**
  *
  * @author LENOVO
  */
 public class Conexion {
+
     Connection conectar = null;
     String usuario = "root";
     String clave = "12345";
@@ -23,18 +25,19 @@ public class Conexion {
     String ip = "localhost";
     String puerto = "3306";
     Statement stm;
-    
-    String cadena = "jdbc:mysql://"+ip+":"+puerto+"/"+bd;
-    
+
+    String cadena = "jdbc:mysql://" + ip + ":" + puerto + "/" + bd;
+
     public ResultSet Select;
-    
-    public Connection EstableceConexion (){
-        try{
+
+    public Connection EstableceConexion() {
+        try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conectar = DriverManager.getConnection(cadena,usuario,clave);
+            conectar = DriverManager.getConnection(cadena, usuario, clave);
             this.stm = this.conectar.createStatement();
+
             //JOptionPane.showMessageDialog(null, "Conexion exitosa");
-        }catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se  pudo hacer la conexion, error: " + e.toString());
         }
         return conectar;
@@ -43,9 +46,11 @@ public class Conexion {
     public ResultSet Select(String query) throws SQLException {
         return this.stm.executeQuery(query);
     }
-    
-    public int ComandoSQL(String query) throws SQLException{
+
+    public int ComandoSQL(String query) throws SQLException {
         return this.stm.executeUpdate(query);
     }
+
     
+
 }
