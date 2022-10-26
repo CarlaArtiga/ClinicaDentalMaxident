@@ -73,6 +73,7 @@ public class Conexion {
         }catch(SQLException ex){
         }
         return sucursal;
+        
     }
 
     
