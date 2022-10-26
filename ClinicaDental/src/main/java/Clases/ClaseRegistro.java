@@ -5,6 +5,7 @@
 package Clases;
 
 import Conexion.Conexion;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -33,13 +34,7 @@ public class ClaseRegistro {
         this.sucursal = sucursal;
     }
     
-    public ResultSet LlenarCombo() throws SQLException{
-        ResultSet rs = null;
-       Statement stm = null;
-       
-       rs = stm.executeQuery("Select * from sucursales");
-        return rs;
-    }
+    
     
    
 }

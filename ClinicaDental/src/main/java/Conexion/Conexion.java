@@ -4,11 +4,14 @@
  */
 package Conexion;
 
+import Clases.ClaseRegistro;
+import Clases.ComboSucursal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.sql.*;
 
@@ -49,6 +52,27 @@ public class Conexion {
 
     public int ComandoSQL(String query) throws SQLException {
         return this.stm.executeUpdate(query);
+    }
+    
+    public ArrayList GetListaSucursal(){
+        ArrayList sucursal = new ArrayList();
+        ComboSucursal suc;
+        ClaseRegistro registro;
+        Statement consulta;
+        ResultSet resultado;
+        try{
+            registro = new ClaseRegistro();
+            consulta = conectar.createStatement();
+            resultado = consulta.executeQuery(registro.getSucursal());
+            while(resultado.next()){
+                suc = new ComboSucursal();
+                suc.setCd(resultado.getInt("CodSucursal"));
+                suc.setNom(resultado.getString("Sucursal"));
+                sucursal.add(suc);
+            }
+        }catch(SQLException ex){
+        }
+        return sucursal;
     }
 
     

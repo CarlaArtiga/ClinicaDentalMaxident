@@ -27,6 +27,11 @@ public class ComboSucursal {
     public void setCd(int cd) {
         this.cd = cd;
     }
+    
+     @Override
+    public String toString(){
+        return getNom();
+    }
 
     public String getNom() {
         return nom;
@@ -36,4 +41,9 @@ public class ComboSucursal {
         this.nom = nom;
     }
     
+    /**
+     *
+     * @return
+     */
+   
 }
