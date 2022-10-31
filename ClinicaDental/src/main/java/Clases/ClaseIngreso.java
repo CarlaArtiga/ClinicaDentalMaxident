@@ -5,6 +5,8 @@
 package Clases;
 
 import Conexion.Conexion;
+import java.sql.CallableStatement;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -16,9 +18,13 @@ import javax.swing.JOptionPane;
 public class ClaseIngreso {
     private String Usuario = "";
     private String Clave = "";
+    private Connection conectar;
+    private Conexion c;
 
     public ClaseIngreso() {
-        
+        c = new Conexion();
+        c.EstableceConexion();
+        //conectar = (Connection) c;
     }
 
     public String getUsuario() {
@@ -53,4 +59,6 @@ public class ClaseIngreso {
         }
         
     }
+    
+    
 }

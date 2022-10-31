@@ -9,8 +9,15 @@ import Conexion.Conexion;
 import Properties.RegistroProperties;
 import static Properties.RegistroProperties.prop;
 import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -217,25 +224,46 @@ public class Ingreso extends javax.swing.JFrame {
     }//GEN-LAST:event_lblSalirMouseClicked
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-        // TODO add your handling code here:
-//        Boolean resultado = null;
-//        resultado = log.IngresarUsuario(
-//                txtUsuario.getText(),
-//                Integer.parseInt(txtClave.getText())); 
-//        //CargarDatosLocal();
-//        JOptionPane.showMessageDialog(null, resultado);
+
+          FileWriter archivo = null;
+          PrintWriter pw;
+          LocalDateTime hora = LocalDateTime.now();
+          
+          String Hora = hora.toString();
+          
           String Usuario = txtUsuario.getText();
           String Clave = txtClave.getText();
+          
+          ingresar.setUsuario(Usuario);
+          ingresar.setClave(Clave);
         try {
             Boolean acceso = ingresar.VerificarUsuario(Usuario, Clave);
             if(acceso == true){
                 JOptionPane.showMessageDialog(null, "Bienvenido " + Usuario);
+                MDI_Principal mdiprin = new MDI_Principal();
+                mdiprin.setVisible(true);
+                this.dispose();
+                
+                archivo = new FileWriter("Usuarios.txt",true);
+                pw = new PrintWriter(archivo);
+                pw.println("Hora: " + Hora);
+                pw.println("Usuario: " + Usuario);
+                pw.println("----------------------------------------------------");
+                pw.println("");
             }
             else{
                 JOptionPane.showMessageDialog(null, "Datos incorrectos");
             }
         } catch (SQLException ex) {
             Logger.getLogger(Ingreso.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Ingreso.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+              try {
+                  archivo.close();
+              } catch (IOException ex) {
+                  Logger.getLogger(Ingreso.class.getName()).log(Level.SEVERE, null, ex);
+              }
         }
           
           

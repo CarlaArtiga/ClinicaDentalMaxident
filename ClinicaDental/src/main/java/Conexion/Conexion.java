@@ -5,7 +5,9 @@
 package Conexion;
 
 import Clases.ClaseRegistro;
+import Clases.ComboCargos;
 import Clases.ComboSucursal;
+import Clases.Personas;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -33,6 +35,10 @@ public class Conexion {
 
     public ResultSet Select;
 
+    /**
+     *
+     * @return
+     */
     public Connection EstableceConexion() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -75,6 +81,28 @@ public class Conexion {
         return sucursal;
         
     }
+    
+    public ArrayList GetListaCargos(){
+        ArrayList cargos = new ArrayList();
+        ComboCargos carg;
+        Personas persona;
+        Statement consulta;
+        ResultSet resultado;
+        try{
+            persona = new Personas();
+            consulta = conectar.createStatement();
+            resultado = consulta.executeQuery(persona.getSelect_Cargos());
+            while(resultado.next()){
+                carg = new ComboCargos();
+                carg.setCodCargos(resultado.getInt("NumCargos"));
+                carg.setCargos(resultado.getString("Cargos"));
+                cargos.add(carg);
+            }
+        }catch(SQLException ex){
+        }
+        return cargos;
+    }
+     
 
     
 
