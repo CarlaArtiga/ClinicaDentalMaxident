@@ -36,15 +36,15 @@ public class MDI_Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        desktopPane = new javax.swing.JDesktopPane();
+        desktop = new javax.swing.JDesktopPane();
         escritorio = new javax.swing.JPanel();
         menuBar = new javax.swing.JMenuBar();
-        fileMenu = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        helpMenu = new javax.swing.JMenu();
-        contentMenuItem = new javax.swing.JMenuItem();
-        aboutMenuItem = new javax.swing.JMenuItem();
+        PersonasMenu = new javax.swing.JMenu();
+        MenuItemPersonas = new javax.swing.JMenuItem();
+        MenuItemUsuarios = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        CitaMenu = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
         FacturaMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,42 +61,59 @@ public class MDI_Principal extends javax.swing.JFrame {
             .addGap(0, 280, Short.MAX_VALUE)
         );
 
-        desktopPane.add(escritorio);
+        desktop.add(escritorio);
         escritorio.setBounds(0, 0, 400, 280);
 
-        fileMenu.setMnemonic('f');
-        fileMenu.setText("Personas");
-        fileMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+        PersonasMenu.setMnemonic('f');
+        PersonasMenu.setText("Personas");
+        PersonasMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fileMenuMouseClicked(evt);
+                PersonasMenuMouseClicked(evt);
             }
         });
 
-        jMenuItem1.setText("Personas");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        MenuItemPersonas.setText("Personas");
+        MenuItemPersonas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                MenuItemPersonasActionPerformed(evt);
             }
         });
-        fileMenu.add(jMenuItem1);
+        PersonasMenu.add(MenuItemPersonas);
 
-        jMenuItem2.setText("Usuarios");
-        fileMenu.add(jMenuItem2);
+        MenuItemUsuarios.setText("Usuarios");
+        MenuItemUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemUsuariosActionPerformed(evt);
+            }
+        });
+        PersonasMenu.add(MenuItemUsuarios);
 
-        menuBar.add(fileMenu);
+        menuBar.add(PersonasMenu);
 
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("Citas");
+        jMenu2.setText("Sucursales");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
+        menuBar.add(jMenu2);
 
-        contentMenuItem.setMnemonic('c');
-        contentMenuItem.setText("Contents");
-        helpMenu.add(contentMenuItem);
+        CitaMenu.setMnemonic('h');
+        CitaMenu.setText("Citas");
+        CitaMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CitaMenuMouseClicked(evt);
+            }
+        });
+        CitaMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CitaMenuActionPerformed(evt);
+            }
+        });
+        menuBar.add(CitaMenu);
 
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("About");
-        helpMenu.add(aboutMenuItem);
-
-        menuBar.add(helpMenu);
+        jMenu1.setText("Productos");
+        menuBar.add(jMenu1);
 
         FacturaMenu.setText("Factura");
         menuBar.add(FacturaMenu);
@@ -107,34 +124,81 @@ public class MDI_Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(desktop, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+            .addComponent(desktop, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void fileMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fileMenuMouseClicked
+    private void PersonasMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PersonasMenuMouseClicked
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_fileMenuMouseClicked
+    }//GEN-LAST:event_PersonasMenuMouseClicked
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void MenuItemPersonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemPersonasActionPerformed
         // TODO add your handling code here:
         InternalFrame_Personas personas = null;
         try {
             personas = new InternalFrame_Personas();
-        } catch (SQLException ex) {
-            Logger.getLogger(MDI_Principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        escritorio.add(personas);
+            escritorio.add(personas);
         personas.toFront();
         personas.show();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+        } catch (SQLException | NullPointerException ex) {
+            
+        }
+        
+    }//GEN-LAST:event_MenuItemPersonasActionPerformed
+
+    private void MenuItemUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemUsuariosActionPerformed
+        // TODO add your handling code here:
+        InternalFrame_Usuarios usuarios = null;
+        try{
+            usuarios = new InternalFrame_Usuarios();
+            
+        }catch(NullPointerException ex){
+            Logger.getLogger(MDI_Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.escritorio.add(usuarios);
+        usuarios.toFront();
+        usuarios.show();
+    }//GEN-LAST:event_MenuItemUsuariosActionPerformed
+
+    private void CitaMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CitaMenuActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_CitaMenuActionPerformed
+
+    private void CitaMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CitaMenuMouseClicked
+        // TODO add your handling code here:
+        InternalFrame_Citas citas = null;
+        try{
+            citas = new InternalFrame_Citas();
+        this.escritorio.add(citas);
+        citas.toFront();
+        citas.show();
+        }catch(NullPointerException ex){
+            
+        }
+        
+    }//GEN-LAST:event_CitaMenuMouseClicked
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        // TODO add your handling code here:
+        InternalFrame_Sucursal sucursal = null;
+        try{
+            sucursal = new InternalFrame_Sucursal();
+        this.escritorio.add(sucursal);
+        sucursal.toFront();
+        sucursal.show();
+        }catch(NullPointerException ex){
+            
+        }
+    }//GEN-LAST:event_jMenu2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -172,15 +236,15 @@ public class MDI_Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu CitaMenu;
     private javax.swing.JMenu FacturaMenu;
-    private javax.swing.JMenuItem aboutMenuItem;
-    private javax.swing.JMenuItem contentMenuItem;
-    private javax.swing.JDesktopPane desktopPane;
+    private javax.swing.JMenuItem MenuItemPersonas;
+    private javax.swing.JMenuItem MenuItemUsuarios;
+    private javax.swing.JMenu PersonasMenu;
+    private javax.swing.JDesktopPane desktop;
     private javax.swing.JPanel escritorio;
-    private javax.swing.JMenu fileMenu;
-    private javax.swing.JMenu helpMenu;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar menuBar;
     // End of variables declaration//GEN-END:variables
 

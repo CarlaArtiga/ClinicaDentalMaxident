@@ -4,8 +4,12 @@
  */
 package Conexion;
 
+import Clases.Citas;
 import Clases.ClaseRegistro;
 import Clases.ComboCargos;
+import Clases.ComboCliente;
+import Clases.ComboDentista;
+import Clases.ComboProducto;
 import Clases.ComboSucursal;
 import Clases.Personas;
 import java.sql.Connection;
@@ -101,6 +105,66 @@ public class Conexion {
         }catch(SQLException ex){
         }
         return cargos;
+    }
+    
+    public ArrayList GetListaClientes(){
+       ArrayList clientes = new ArrayList();
+        ComboCliente cliente;
+        Citas cita;
+        Statement consulta;
+        ResultSet resultado;
+        try{
+            cita = new Citas();
+            consulta = conectar.createStatement();
+            resultado = consulta.executeQuery(cita.getSelect_Cliente());
+            while(resultado.next()){
+                cliente = new ComboCliente();
+                cliente.setCliente(resultado.getString("Cliente"));
+                clientes.add(cliente);
+            }
+        }catch(SQLException ex){
+        }
+        return clientes;
+    }
+    
+    public ArrayList GetListaProducto(){
+        ArrayList producto = new ArrayList();
+        ComboProducto prod;
+        Citas cita;
+        Statement consulta;
+        ResultSet resultado;
+        try{
+            cita = new Citas();
+            consulta = conectar.createStatement();
+            resultado = consulta.executeQuery(cita.getSelect_Producto());
+            while(resultado.next()){
+                prod = new ComboProducto();
+                prod.setProducto(resultado.getString("producto"));
+                producto.add(prod);
+            }
+        }catch(SQLException ex){
+        }
+        return producto;
+    }
+    
+    public ArrayList GetListaDentista(){
+        ArrayList dentista = new ArrayList();
+        ComboDentista dent;
+        Citas cita;
+        Statement consulta;
+        ResultSet resultado;
+        try{
+            cita = new Citas();
+            consulta = conectar.createStatement();
+            resultado = consulta.executeQuery(cita.getSelect_Dentista());
+            while(resultado.next()){
+                dent = new ComboDentista();
+                dent.setDentista(resultado.getString("Dentista"));
+                dentista.add(dent);
+            }
+        }catch(SQLException ex){
+        }
+        return dentista;
     }
      
 

@@ -520,8 +520,7 @@ public class InternalFrame_Personas extends javax.swing.JInternalFrame {
             this.rdbActivo.setSelected(false);
         }
         
-        
-        
+       
     }//GEN-LAST:event_TablePersonasMouseClicked
 
 
