@@ -5,7 +5,7 @@
 package ujmdprc4.clinicadental;
 
 import Clases.ClaseRegistro;
-import Clases.ComboSucursal;
+import Combos.ComboSucursal;
 import Conexion.Conexion;
 import java.awt.Color;
 import static java.lang.Integer.parseInt;

@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -46,6 +47,7 @@ public class MDI_Principal extends javax.swing.JFrame {
         CitaMenu = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         FacturaMenu = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
@@ -113,9 +115,33 @@ public class MDI_Principal extends javax.swing.JFrame {
         menuBar.add(CitaMenu);
 
         jMenu1.setText("Productos");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
         menuBar.add(jMenu1);
 
-        FacturaMenu.setText("Factura");
+        FacturaMenu.setText("Ticket");
+        FacturaMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FacturaMenuMouseClicked(evt);
+            }
+        });
+
+        jMenuItem1.setText("Factura");
+        jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem1MouseClicked(evt);
+            }
+        });
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        FacturaMenu.add(jMenuItem1);
+
         menuBar.add(FacturaMenu);
 
         setJMenuBar(menuBar);
@@ -200,6 +226,44 @@ public class MDI_Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenu2MouseClicked
 
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        // TODO add your handling code here:
+        InternalFrame_Productos producto = null;
+        try{
+            producto = new InternalFrame_Productos();
+        this.escritorio.add(producto);
+        producto.toFront();
+        producto.show();
+        }catch(NullPointerException ex){
+            
+        }
+    }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void FacturaMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FacturaMenuMouseClicked
+        // TODO add your handling code here:
+
+                
+    }//GEN-LAST:event_FacturaMenuMouseClicked
+
+    private void jMenuItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MouseClicked
+        // TODO add your handling code here:
+       
+        
+    }//GEN-LAST:event_jMenuItem1MouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+         InternalFrame_Factura factura = null;
+        try{
+            factura = new InternalFrame_Factura();
+        this.escritorio.add(factura);
+        factura.toFront();
+        factura.show();
+        }catch(NullPointerException ex){
+            
+        }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -245,6 +309,7 @@ public class MDI_Principal extends javax.swing.JFrame {
     private javax.swing.JPanel escritorio;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuBar menuBar;
     // End of variables declaration//GEN-END:variables
 

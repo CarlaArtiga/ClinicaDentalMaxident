@@ -4,7 +4,7 @@
  */
 package ujmdprc4.clinicadental;
 
-import Clases.ComboCargos;
+import Combos.ComboCargos;
 import Clases.Personas;
 import Conexion.Conexion;
 import static java.lang.Integer.parseInt;

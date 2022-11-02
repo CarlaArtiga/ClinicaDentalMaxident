@@ -23,8 +23,17 @@ public class Citas {
     private String Select_Cliente = "select * from clientes_vw";
     private String Select_Producto = "select * from producto_vw";
     private String Select_Dentista = "select * from Dentista";
+    private String Select_Secretario = "select * from secretario_vw";
 
     public Citas() {
+    }
+
+    public String getSelect_Secretario() {
+        return Select_Secretario;
+    }
+
+    public void setSelect_Secretario(String Select_Secretario) {
+        this.Select_Secretario = Select_Secretario;
     }
 
     public String getSelect_Producto() {
@@ -88,18 +97,18 @@ public class Citas {
     }
     
     public int AgendarCita(String per, String prod, String FechaHora, 
-                           String desc,String dent, String Estado) throws SQLException{
+                           String desc,String dent,String sec ,String Estado) throws SQLException{
         Conexion c = new Conexion();
         c.EstableceConexion();
-        return c.ComandoSQL("call insert_cita('"+per+"','"+prod+"','"+FechaHora+"','"+desc+"','"+dent+"','"+Estado+"');");
+        return c.ComandoSQL("call insert_cita('"+per+"','"+prod+"','"+FechaHora+"','"+desc+"','"+dent+"','"+sec+"','"+Estado+"');");
     }
     
     public int EditarCita(int cod, String per, String prod, String FechaHora,
-                          String desc,String dent ,String Estado) throws SQLException {
+                          String desc,String dent,String sec,String Estado) throws SQLException {
         Conexion c = new Conexion();
         c.EstableceConexion();
         return c.ComandoSQL("call update_cita("+cod+",'"+per+"','"+prod+"',"
-                + "'"+FechaHora+"','"+desc+"','"+dent+"','"+Estado+"');");
+                + "'"+FechaHora+"','"+desc+"','"+dent+"','"+sec+"','"+Estado+"');");
         
     }
     

@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 public class ClaseIngreso {
     private String Usuario = "";
     private String Clave = "";
+    private int rol;
     private Connection conectar;
     private Conexion c;
 
@@ -27,6 +28,22 @@ public class ClaseIngreso {
         //conectar = (Connection) c;
     }
 
+public int getRol() {
+        return rol;
+    }
+    public void setRol(int rol) {
+        this.rol = rol;
+    }
+
+    public Connection getConectar() {
+        return conectar;
+    }
+
+    public void setConectar(Connection conectar) {
+        this.conectar = conectar;
+    }
+    
+    
     public String getUsuario() {
         return Usuario;
     }
@@ -57,8 +74,61 @@ public class ClaseIngreso {
         else{
             return false;
         }
-        
     }
+        
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
+     
+       public boolean VerificarRol() throws SQLException{
+        Conexion c = new Conexion();
+        c.EstableceConexion();
+        int rol = 0;
+        ResultSet resultado;
+        resultado = c.Select("call verificar_rol(1)");
+        
+        if(resultado.next()){
+             
+            return true;
+        }
+        else{          
+            return false;
+        }
+                
+    }  
+    
+    public boolean VerificarInvitado() throws SQLException{
+        Conexion c = new Conexion();
+        c.EstableceConexion();
+        int rol = 0;
+        ResultSet resultado;
+        resultado = c.Select("call verificar_rol(2)");
+        
+        if(resultado.next()){
+             
+            return true;
+        }
+        else{          
+            return false;
+        }
+                
+    }
+    
+    public boolean VerificarNulos() throws SQLException{
+        Conexion c = new Conexion();
+        c.EstableceConexion();
+        ResultSet resultado;
+        resultado = c.Select("call verificar_rol(null)");
+        if(resultado.next()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+        
+    
     
     
 }

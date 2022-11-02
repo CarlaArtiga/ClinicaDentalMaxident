@@ -2,16 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Clases;
+package Combos;
 
 /**
  *
  * @author LENOVO
  */
-public class ComboDentista {
+public class ComboDentistaFact {
     private String Dentista;
 
-    public ComboDentista() {
+    public ComboDentistaFact() {
     }
 
     public String getDentista() {
@@ -21,7 +21,7 @@ public class ComboDentista {
     public void setDentista(String Dentista) {
         this.Dentista = Dentista;
     }
-     @Override
+         @Override
     public String toString(){
         return getDentista();
     }

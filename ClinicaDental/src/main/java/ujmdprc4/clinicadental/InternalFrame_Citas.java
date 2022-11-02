@@ -5,9 +5,10 @@
 package ujmdprc4.clinicadental;
 
 import Clases.Citas;
-import Clases.ComboCliente;
-import Clases.ComboDentista;
-import Clases.ComboProducto;
+import Combos.ComboCliente;
+import Combos.ComboDentista;
+import Combos.ComboProducto;
+import Combos.ComboSecretario;
 import Conexion.Conexion;
 import static java.lang.Integer.parseInt;
 import java.sql.SQLException;
@@ -28,13 +29,15 @@ public class InternalFrame_Citas extends javax.swing.JInternalFrame {
      */
     public InternalFrame_Citas() {
         initComponents();
-        this.setSize(900, 400);
+        this.setSize(900, 450);
+        this.TablaCitas.setSize(500, 500);
         this.jdcFecha.setDateFormatString(" yyyy.MM.dd hh:mm:ss");
         citas = new Citas();
         CargarDatos();
         LlenarComboCliente();
         LlenarComboProducto();
         LlenarComboDentista();
+        LlenarComboSecretaria();
     }
     
     public void CargarDatos(){
@@ -80,6 +83,19 @@ public class InternalFrame_Citas extends javax.swing.JInternalFrame {
             
         }
     }
+    
+    public void LlenarComboSecretaria(){
+        Conexion c = new Conexion();
+        c.EstableceConexion();
+        ArrayList s = new ArrayList();
+        this.cmbSecretaria.removeAllItems();
+        s = c.GetListaSecretaria();
+        Iterator iterador = s.iterator();
+        while(iterador.hasNext()){
+            ComboSecretario CS = (ComboSecretario) iterador.next();
+            this.cmbSecretaria.addItem(CS.getSecretario());
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -110,6 +126,8 @@ public class InternalFrame_Citas extends javax.swing.JInternalFrame {
         btnLimpiar = new javax.swing.JButton();
         lblDentista = new javax.swing.JLabel();
         cmbDentista = new javax.swing.JComboBox<>();
+        lblDentista1 = new javax.swing.JLabel();
+        cmbSecretaria = new javax.swing.JComboBox<>();
 
         setBorder(null);
         setClosable(true);
@@ -208,6 +226,8 @@ public class InternalFrame_Citas extends javax.swing.JInternalFrame {
 
         lblDentista.setText("Dentista:");
 
+        lblDentista1.setText("Secretaria");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -216,37 +236,42 @@ public class InternalFrame_Citas extends javax.swing.JInternalFrame {
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblClientes)
-                        .addGap(6, 6, 6)
-                        .addComponent(cmbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblDentista1)
                         .addGap(18, 18, 18)
-                        .addComponent(cmbProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblFechaHora, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jdcFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(chkAtendido)
-                        .addGap(18, 18, 18)
-                        .addComponent(chkCancelado))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDescripcion)
-                            .addComponent(lblDentista))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtDescripcion)
-                            .addComponent(cmbDentista, 0, 166, Short.MAX_VALUE))))
+                        .addComponent(cmbSecretaria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(12, 12, 12)
+                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblClientes)
+                            .addGap(6, 6, 6)
+                            .addComponent(cmbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(cmbProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblFechaHora, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jdcFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(chkAtendido)
+                            .addGap(18, 18, 18)
+                            .addComponent(chkCancelado))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblDescripcion)
+                                .addComponent(lblDentista))
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtDescripcion)
+                                .addComponent(cmbDentista, 0, 166, Short.MAX_VALUE)))))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
                         .addGap(16, 16, 16))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAgendar)
@@ -292,11 +317,15 @@ public class InternalFrame_Citas extends javax.swing.JInternalFrame {
                         .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblDentista)
-                            .addComponent(cmbDentista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
+                            .addComponent(cmbDentista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblDentista1)
+                            .addComponent(cmbSecretaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAgendar)
                     .addComponent(btnEditar)
@@ -305,7 +334,7 @@ public class InternalFrame_Citas extends javax.swing.JInternalFrame {
                         .addComponent(btnLimpiar))
                     .addComponent(chkAtendido)
                     .addComponent(chkCancelado))
-                .addContainerGap())
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -352,13 +381,14 @@ public class InternalFrame_Citas extends javax.swing.JInternalFrame {
         String personas = this.cmbClientes.getSelectedItem().toString();
         String productos = this.cmbProductos.getSelectedItem().toString();
         String dent = this.cmbDentista.getSelectedItem().toString();
+        String secre = this.cmbSecretaria.getSelectedItem().toString();
         String FechaHora = ((JTextField)this.jdcFecha.getDateEditor().getUiComponent()).getText();
         String desc = this.txtDescripcion.getText();
         try{
             if(this.chkAtendido.isSelected()){
                 String Atendido = this.chkAtendido.getText();
                Atendido = "Atendido";
-                if(cita.AgendarCita(personas, productos, FechaHora, desc,dent, Atendido)>0){
+                if(cita.AgendarCita(personas, productos, FechaHora, desc,dent,secre ,Atendido)>0){
                     JOptionPane.showMessageDialog(null, "datos ingresados");
                     this.TablaCitas.setModel(this.citas.CargarCita());
                     
@@ -368,7 +398,7 @@ public class InternalFrame_Citas extends javax.swing.JInternalFrame {
             if(this.chkCancelado.isSelected()){
                 String Cancelado  = this.chkCancelado.getText();
                 Cancelado = "Cancelado";
-                if(cita.AgendarCita(personas, productos, FechaHora, desc,dent ,Cancelado)>0){
+                if(cita.AgendarCita(personas, productos, FechaHora, desc,dent ,secre,Cancelado)>0){
                     JOptionPane.showMessageDialog(null, "datos ingresados");  
                     this.TablaCitas.setModel(this.citas.CargarCita());
                 }
@@ -388,13 +418,14 @@ public class InternalFrame_Citas extends javax.swing.JInternalFrame {
         String personas = this.cmbClientes.getSelectedItem().toString();
         String productos = this.cmbProductos.getSelectedItem().toString();
         String dent = this.cmbDentista.getSelectedItem().toString();
+        String secre = this.cmbSecretaria.getSelectedItem().toString();
         String FechaHora = ((JTextField)this.jdcFecha.getDateEditor().getUiComponent()).getText();
         String desc = this.txtDescripcion.getText();
         try{
             if(this.chkAtendido.isSelected()){
                String Atendido = this.chkAtendido.getText();
                Atendido = "Atendido";
-                if(cita.EditarCita(cod, personas, productos, FechaHora, desc,dent,Atendido)>0){
+                if(cita.EditarCita(cod, personas, productos, FechaHora, desc,dent,secre,Atendido)>0){
                     JOptionPane.showMessageDialog(null, "datos modificados");
                     this.TablaCitas.setModel(this.citas.CargarCita());
                     
@@ -404,7 +435,7 @@ public class InternalFrame_Citas extends javax.swing.JInternalFrame {
             if(this.chkCancelado.isSelected()){
                 String Cancelado  = this.chkCancelado.getText();
                 Cancelado = "Cancelado";
-                if(cita.EditarCita(cod, personas, productos, FechaHora, desc,dent,Cancelado)>0){
+                if(cita.EditarCita(cod, personas, productos, FechaHora, desc,dent,secre,Cancelado)>0){
                     JOptionPane.showMessageDialog(null, "datos modificados");  
                     this.TablaCitas.setModel(this.citas.CargarCita());
                 }
@@ -474,11 +505,13 @@ public class InternalFrame_Citas extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cmbClientes;
     private javax.swing.JComboBox<String> cmbDentista;
     private javax.swing.JComboBox<String> cmbProductos;
+    private javax.swing.JComboBox<String> cmbSecretaria;
     private javax.swing.JScrollPane jScrollPane1;
     private com.toedter.calendar.JDateChooser jdcFecha;
     private javax.swing.JLabel lblClientes;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblDentista;
+    private javax.swing.JLabel lblDentista1;
     private javax.swing.JLabel lblDescripcion;
     private javax.swing.JLabel lblFechaHora;
     private javax.swing.JLabel lblProductos;
