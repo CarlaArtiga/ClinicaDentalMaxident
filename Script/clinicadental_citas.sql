@@ -18,37 +18,34 @@ USE `clinicadental`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `factura`
+-- Table structure for table `citas`
 --
 
-DROP TABLE IF EXISTS `factura`;
+DROP TABLE IF EXISTS `citas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `factura` (
-  `CodFactura` int NOT NULL AUTO_INCREMENT,
-  `NumFactura` int DEFAULT NULL,
-  `Fecha` date DEFAULT NULL,
-  `Secretaria` int DEFAULT NULL,
-  `Doctor` int DEFAULT NULL,
-  `Cliente` int DEFAULT NULL,
-  PRIMARY KEY (`CodFactura`),
-  KEY `fk_factura_secre` (`Secretaria`),
-  KEY `fk_factura_doctor` (`Doctor`),
-  KEY `fk_factura_cliente` (`Cliente`),
-  CONSTRAINT `fk_factura_cliente` FOREIGN KEY (`Cliente`) REFERENCES `personas` (`CodPersona`),
-  CONSTRAINT `fk_factura_doctor` FOREIGN KEY (`Doctor`) REFERENCES `personas` (`CodPersona`),
-  CONSTRAINT `fk_factura_secre` FOREIGN KEY (`Secretaria`) REFERENCES `personas` (`CodPersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `citas` (
+  `CodCita` int NOT NULL AUTO_INCREMENT,
+  `Persona` varchar(100) DEFAULT NULL,
+  `Producto` varchar(45) DEFAULT NULL,
+  `FechaHora` datetime DEFAULT NULL,
+  `Descripcion` varchar(100) DEFAULT NULL,
+  `Dentista` varchar(45) DEFAULT NULL,
+  `Secretario` varchar(45) DEFAULT NULL,
+  `Estado` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`CodCita`),
+  KEY `fk_citas_codprod` (`Producto`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `factura`
+-- Dumping data for table `citas`
 --
 
-LOCK TABLES `factura` WRITE;
-/*!40000 ALTER TABLE `factura` DISABLE KEYS */;
-INSERT INTO `factura` VALUES (1,101,'2022-09-10',2,1,1),(2,102,'2022-09-10',2,3,1),(3,103,'2022-09-10',2,4,2);
-/*!40000 ALTER TABLE `factura` ENABLE KEYS */;
+LOCK TABLES `citas` WRITE;
+/*!40000 ALTER TABLE `citas` DISABLE KEYS */;
+INSERT INTO `citas` VALUES (7,'Gabriela Moran','Colocacion de brackets','2022-10-31 11:26:08','ortodoncia mensual','Mauricio Castillo','Javier Bolaños','Atendido'),(8,'Gabriela Moran','Colocacion de brackets','2022-10-31 11:26:08','limpieza mensual','Mauricio Castillo','Javier Bolaños','Atendido'),(9,'Daniela Lopez','Colocacion de brackets','2022-11-02 02:07:19',NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `citas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -60,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-31  0:47:17
+-- Dump completed on 2022-11-02 12:04:39

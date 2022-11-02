@@ -27,15 +27,11 @@ DROP TABLE IF EXISTS `facturadetalle`;
 CREATE TABLE `facturadetalle` (
   `CodFactDeta` int NOT NULL AUTO_INCREMENT,
   `NumFactura` int DEFAULT NULL,
-  `CodProducto` int DEFAULT NULL,
+  `Producto` varchar(45) DEFAULT NULL,
   `Cantidad` int DEFAULT NULL,
-  `Precio` int DEFAULT NULL,
-  PRIMARY KEY (`CodFactDeta`),
-  KEY `NumFactura_idx` (`NumFactura`),
-  KEY `fk_factdeta_codprod` (`CodProducto`),
-  CONSTRAINT `fk_factdeta_codprod` FOREIGN KEY (`CodProducto`) REFERENCES `productos` (`CodProducto`),
-  CONSTRAINT `NumFactura` FOREIGN KEY (`NumFactura`) REFERENCES `factura` (`CodFactura`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+  `Precio` float DEFAULT NULL,
+  PRIMARY KEY (`CodFactDeta`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +40,7 @@ CREATE TABLE `facturadetalle` (
 
 LOCK TABLES `facturadetalle` WRITE;
 /*!40000 ALTER TABLE `facturadetalle` DISABLE KEYS */;
-INSERT INTO `facturadetalle` VALUES (1,1,101,1,20),(2,2,101,3,4),(3,3,101,4,5);
+INSERT INTO `facturadetalle` VALUES (4,1,'Colocacion de brackets',1,20),(5,2,'Colocacion de brackets',1,20),(6,3,'Colocacion de brackets',1,20.5);
 /*!40000 ALTER TABLE `facturadetalle` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-21 20:38:42
+-- Dump completed on 2022-11-02 12:04:40

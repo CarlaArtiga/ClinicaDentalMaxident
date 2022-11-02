@@ -31,7 +31,7 @@ CREATE TABLE `productos` (
   PRIMARY KEY (`CodProducto`),
   KEY `CodCategoria_idx` (`CodCategoria`),
   CONSTRAINT `CodCategoria` FOREIGN KEY (`CodCategoria`) REFERENCES `categorias` (`CodCategoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `productos` (
 
 LOCK TABLES `productos` WRITE;
 /*!40000 ALTER TABLE `productos` DISABLE KEYS */;
-INSERT INTO `productos` VALUES (1,'Colocacion de brackets',1),(2,'Extraccion',2),(3,'Limpieza dental',1),(4,'Toma de rayos X',4),(5,'Enjuague',6),(6,'Cepillo',6);
+INSERT INTO `productos` VALUES (1,'Colocacion de brackets',1),(2,'Extraccion',2),(3,'Limpieza dental',1),(4,'Toma de rayos X',3),(5,'Enjuague',4),(6,'Cepillo',4),(7,'Blanqueamiento',1);
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-21 20:38:41
+-- Dump completed on 2022-11-02 12:04:40

@@ -33,7 +33,7 @@ CREATE TABLE `sucursalxpersona` (
   KEY `fk_suxpers_codpers_idx` (`CodPersona`),
   CONSTRAINT `fk_suxpers_codpers` FOREIGN KEY (`CodPersona`) REFERENCES `personas` (`CodPersona`),
   CONSTRAINT `fk_suxpers_codsu` FOREIGN KEY (`CodSucursal`) REFERENCES `sucursales` (`CodSucursal`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `sucursalxpersona` (
 
 LOCK TABLES `sucursalxpersona` WRITE;
 /*!40000 ALTER TABLE `sucursalxpersona` DISABLE KEYS */;
-INSERT INTO `sucursalxpersona` VALUES (1,1,4),(3,1,3);
+INSERT INTO `sucursalxpersona` VALUES (1,1,14),(3,1,15),(4,2,1),(5,2,2),(6,1,3),(7,2,4),(8,1,22),(9,2,23),(10,1,24);
 /*!40000 ALTER TABLE `sucursalxpersona` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-31  0:47:17
+-- Dump completed on 2022-11-02 12:04:41

@@ -30,7 +30,7 @@ CREATE TABLE `usuarios` (
   `Clave` varchar(45) DEFAULT NULL,
   `Rol` int DEFAULT NULL,
   PRIMARY KEY (`CodUsuarios`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Mauricio','12345',1),(2,'Javier','12345',2),(3,'Carla','12345',1),(4,'Gabriel','12345',NULL);
+INSERT INTO `usuarios` VALUES (1,'Mauricio','12345',1),(2,'Javier','12345',2),(3,'Carla','12345',1),(22,'Carla','hola123',2),(23,'Javier','12345',2),(25,'Maria','827ccb0eea8a706c4c34a16891f84e7b',1);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-21 20:38:42
+-- Dump completed on 2022-11-02 12:04:40

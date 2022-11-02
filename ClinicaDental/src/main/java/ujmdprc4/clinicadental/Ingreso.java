@@ -245,11 +245,14 @@ public class Ingreso extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Bienvenido " + Usuario);
                 if(ingresar.getRol()==1){
                     this.mdi.setVisible(true);
+                    this.dispose();
                 }else{
                     if(ingresar.getRol()==2){
                         this.citacliente.setVisible(true);
+                        this.dispose();
                     }
                     this.citacliente.setVisible(true);
+                    this.dispose();
                 }
                   
                 archivo = new FileWriter("Usuarios.txt", true);
