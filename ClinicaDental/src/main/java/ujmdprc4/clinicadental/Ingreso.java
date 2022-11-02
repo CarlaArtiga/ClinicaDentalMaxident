@@ -6,6 +6,7 @@ package ujmdprc4.clinicadental;
 
 import Clases.ClaseIngreso;
 import Conexion.Conexion;
+import InterfazCliente.Cita_Cliente;
 import Properties.RegistroProperties;
 import static Properties.RegistroProperties.prop;
 import java.awt.Color;
@@ -15,6 +16,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.Integer.parseInt;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -29,6 +31,9 @@ import javax.swing.JOptionPane;
 public class Ingreso extends javax.swing.JFrame {
 
     ClaseIngreso ingresar;
+    MDI_Principal mdi;
+    Cita_Cliente citacliente;
+    Cita_Cliente persona;
 
     /**
      * Creates new form Ingreso
@@ -36,6 +41,9 @@ public class Ingreso extends javax.swing.JFrame {
     public Ingreso() {
 
         ingresar = new ClaseIngreso();
+        mdi = new MDI_Principal();
+        citacliente = new Cita_Cliente();
+        persona = new Cita_Cliente();
 
         initComponents();
         getContentPane().setBackground(new Color(131, 207, 227));
@@ -224,6 +232,7 @@ public class Ingreso extends javax.swing.JFrame {
         FileWriter archivo = null;
         PrintWriter pw;
         LocalDateTime hora = LocalDateTime.now();
+        
 
         String Hora = hora.toString();
 
@@ -234,41 +243,15 @@ public class Ingreso extends javax.swing.JFrame {
             Boolean acceso = ingresar.VerificarUsuario(Usuario, Clave);
             if (acceso == true) {
                 JOptionPane.showMessageDialog(null, "Bienvenido " + Usuario);
-                boolean rol = ingresar.VerificarRol();
-                if (rol == true) {
-                    ingresar.setUsuario(Usuario);
-                    ingresar.setClave(Clave);
-                    int admin = 1;
-                    ingresar.setRol(admin);
-                    admin = ingresar.getRol();
-                    //JOptionPane.showMessageDialog(null, admin);
-                    MDI_Principal mdiprin = new MDI_Principal();
-                    mdiprin.setVisible(true);
-                    this.dispose();
-
-                } else {
-                    ingresar.setUsuario(Usuario);
-                    ingresar.setClave(Clave);
-                    boolean invitado = ingresar.VerificarInvitado();
-                    if (invitado = true) {
-                        int inv = 2;
-                        ingresar.setRol(inv);
-                        inv = ingresar.getRol();
-                        MDI_Principal mdiprin = new MDI_Principal();
-                        mdiprin.setVisible(true);
-                        this.dispose();
-                    } else {
-                        ingresar.setUsuario(Usuario);
-                        ingresar.setClave(Clave);
-                        boolean nulo = ingresar.VerificarNulos();
-                        if (nulo = true) {
-                            MDI_Principal mdiprin = new MDI_Principal();
-                            mdiprin.setVisible(true);
-                            this.dispose();
-                        }
+                if(ingresar.getRol()==1){
+                    this.mdi.setVisible(true);
+                }else{
+                    if(ingresar.getRol()==2){
+                        this.citacliente.setVisible(true);
                     }
+                    this.citacliente.setVisible(true);
                 }
-
+                  
                 archivo = new FileWriter("Usuarios.txt", true);
                 pw = new PrintWriter(archivo);
                 pw.println("Hora: " + Hora);
@@ -282,11 +265,15 @@ public class Ingreso extends javax.swing.JFrame {
             Logger.getLogger(Ingreso.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(Ingreso.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NullPointerException ex) {
+
         } finally {
             try {
                 archivo.close();
             } catch (IOException ex) {
                 Logger.getLogger(Ingreso.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (NullPointerException e) {
+
             }
         }
 

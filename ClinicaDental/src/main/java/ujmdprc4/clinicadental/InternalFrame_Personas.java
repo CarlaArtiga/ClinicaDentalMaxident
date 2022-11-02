@@ -504,6 +504,7 @@ public class InternalFrame_Personas extends javax.swing.JInternalFrame {
             break;
                 
         }
+        
         this.txtNombre.setText(this.TablePersonas.getValueAt(seleccion, 1).toString());
         this.txtApellido.setText(this.TablePersonas.getValueAt(seleccion, 2).toString());
         ((JTextField)this.jdcFechaRegistro.getDateEditor().getUiComponent()).setText(this.TablePersonas.getValueAt(seleccion, 3).toString());

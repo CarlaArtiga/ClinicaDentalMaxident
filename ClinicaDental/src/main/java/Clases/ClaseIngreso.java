@@ -5,6 +5,7 @@
 package Clases;
 
 import Conexion.Conexion;
+import static java.lang.Integer.parseInt;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -21,6 +22,7 @@ public class ClaseIngreso {
     private int rol;
     private Connection conectar;
     private Conexion c;
+   
 
     public ClaseIngreso() {
         c = new Conexion();
@@ -68,6 +70,9 @@ public int getRol() {
         resultado = c.Select("CALL VerificarUsuario('"+Usuario+"','"+Clave+"');");
 
         if(resultado.next()){
+            this.setUsuario(resultado.getString("usuarios"));
+            this.setClave(resultado.getString("Clave"));
+            this.setRol(resultado.getInt("Rol"));
             
             return true;
         }
@@ -75,6 +80,8 @@ public int getRol() {
             return false;
         }
     }
+    
+    
         
     /**
      *
@@ -82,52 +89,11 @@ public int getRol() {
      * @throws SQLException
      */
      
-       public boolean VerificarRol() throws SQLException{
-        Conexion c = new Conexion();
-        c.EstableceConexion();
-        int rol = 0;
-        ResultSet resultado;
-        resultado = c.Select("call verificar_rol(1)");
-        
-        if(resultado.next()){
-             
-            return true;
-        }
-        else{          
-            return false;
-        }
-                
-    }  
+     
     
-    public boolean VerificarInvitado() throws SQLException{
-        Conexion c = new Conexion();
-        c.EstableceConexion();
-        int rol = 0;
-        ResultSet resultado;
-        resultado = c.Select("call verificar_rol(2)");
-        
-        if(resultado.next()){
-             
-            return true;
-        }
-        else{          
-            return false;
-        }
-                
-    }
+   
     
-    public boolean VerificarNulos() throws SQLException{
-        Conexion c = new Conexion();
-        c.EstableceConexion();
-        ResultSet resultado;
-        resultado = c.Select("call verificar_rol(null)");
-        if(resultado.next()){
-            return true;
-        }else{
-            return false;
-        }
-    }
-        
+    
     
     
     

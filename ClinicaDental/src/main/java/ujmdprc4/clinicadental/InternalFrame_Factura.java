@@ -10,8 +10,14 @@ import Clases.Factura;
 import Combos.ComboProducto;
 import Combos.ComboSecreFact;
 import Conexion.Conexion;
+import static java.lang.Float.parseFloat;
+import static java.lang.Integer.parseInt;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -25,8 +31,9 @@ public class InternalFrame_Factura extends javax.swing.JInternalFrame {
      */
     public InternalFrame_Factura() {
         initComponents();
-        this.setSize(1360, 690);
+        this.setSize(900, 690);
         factura = new Factura();
+        this.jdcFecha.setDateFormatString("yyyy-MM-dd");
         CargarTablaFactura();
         CargarDetalle();
         CargarClientes();
@@ -139,7 +146,6 @@ public class InternalFrame_Factura extends javax.swing.JInternalFrame {
         btnEditar1 = new javax.swing.JButton();
         btnEliminar1 = new javax.swing.JButton();
         btnLimpiar1 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
 
         setBorder(null);
         setClosable(true);
@@ -174,11 +180,26 @@ public class InternalFrame_Factura extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        TablaFactura.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaFacturaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TablaFactura);
 
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         btnEditar.setText("Editar");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -301,9 +322,19 @@ public class InternalFrame_Factura extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablaDetalle.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaDetalleMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tablaDetalle);
 
         btnGuardar1.setText("Guardar");
+        btnGuardar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardar1ActionPerformed(evt);
+            }
+        });
 
         btnEditar1.setText("Editar");
         btnEditar1.addActionListener(new java.awt.event.ActionListener() {
@@ -313,6 +344,11 @@ public class InternalFrame_Factura extends javax.swing.JInternalFrame {
         });
 
         btnEliminar1.setText("Eliminar");
+        btnEliminar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminar1ActionPerformed(evt);
+            }
+        });
 
         btnLimpiar1.setText("Limpiar");
         btnLimpiar1.addActionListener(new java.awt.event.ActionListener() {
@@ -399,20 +435,7 @@ public class InternalFrame_Factura extends javax.swing.JInternalFrame {
                     .addComponent(btnEliminar1)
                     .addComponent(btnEditar1)
                     .addComponent(btnLimpiar1))
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
-
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Ticket"));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 310, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 263, Short.MAX_VALUE)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -424,22 +447,16 @@ public class InternalFrame_Factura extends javax.swing.JInternalFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -456,15 +473,142 @@ public class InternalFrame_Factura extends javax.swing.JInternalFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
+        int cod = parseInt(this.txtCodigo.getText());
+        int numfac = parseInt(this.txtNumFactura.getText());
+        String Fecha = ((JTextField)this.jdcFecha.getDateEditor().getUiComponent()).getText();
+        String secre = this.cmbSecretaria.getSelectedItem().toString();
+        String doctor = this.cmbDoctor.getSelectedItem().toString();
+        String cliente = this.cmbCliente.getSelectedItem().toString();
+        try {
+            if(this.factura.Actualizar_Factura(cod, numfac, Fecha, secre, doctor, cliente)>0){
+                JOptionPane.showMessageDialog(null, "datos modificados");
+                this.CargarTablaFactura();
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "error: " + ex);
+            Logger.getLogger(InternalFrame_Factura.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnEditar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditar1ActionPerformed
-        // TODO add your handling code here:
+        int cod = parseInt(this.txtCodigoDeta.getText());
+        int numfac = parseInt(this.txtNumFact.getText());
+        String prod = this.cmbProducto.getSelectedItem().toString();
+        int cantidad = parseInt(this.txtCantidad.getText());
+        float precio = parseFloat(this.txtPrecio.getText());
+        try {
+            if(this.factura.Actualizar_Detalle(cod, numfac, prod, cantidad, precio)>0){
+                JOptionPane.showMessageDialog(null, "datos modificados");
+                this.CargarDetalle();
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "error: " + ex);
+            Logger.getLogger(InternalFrame_Factura.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnEditar1ActionPerformed
 
     private void btnLimpiar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiar1ActionPerformed
         // TODO add your handling code here:
+        this.txtCodigoDeta.setText("");
+        this.txtNumFact.setText("");
+        this.txtCantidad.setText("");
+        this.txtPrecio.setText("");
     }//GEN-LAST:event_btnLimpiar1ActionPerformed
+
+    private void TablaFacturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaFacturaMouseClicked
+        // TODO add your handling code here:
+        int seleccion = this.TablaFactura.getSelectedRow();
+        this.txtCodigo.setText(this.TablaFactura.getValueAt(seleccion, 0).toString());
+        this.txtNumFactura.setText(this.TablaFactura.getValueAt(seleccion, 1).toString());
+        ((JTextField)this.jdcFecha.getDateEditor().getUiComponent()).setText(this.TablaFactura.getValueAt(seleccion, 2).toString());
+        
+        
+    }//GEN-LAST:event_TablaFacturaMouseClicked
+
+    private void tablaDetalleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaDetalleMouseClicked
+        // TODO add your handling code here:
+        int seleccion = this.tablaDetalle.getSelectedRow();
+        this.txtCodigoDeta.setText(this.tablaDetalle.getValueAt(seleccion, 0).toString());
+        this.txtNumFact.setText(this.tablaDetalle.getValueAt(seleccion, 1).toString());
+        this.txtCantidad.setText(this.tablaDetalle.getValueAt(seleccion, 3).toString());
+        this.txtPrecio.setText(this.tablaDetalle.getValueAt(seleccion, 4).toString());
+        
+    }//GEN-LAST:event_tablaDetalleMouseClicked
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+        
+        int numfac = parseInt(this.txtNumFactura.getText());
+        String Fecha = ((JTextField)this.jdcFecha.getDateEditor().getUiComponent()).getText();
+        String secre = this.cmbSecretaria.getSelectedItem().toString();
+        String doctor = this.cmbDoctor.getSelectedItem().toString();
+        String cliente = this.cmbCliente.getSelectedItem().toString();
+        try {
+            if(this.factura.Insertar_Factura(numfac, Fecha, secre, doctor, cliente)>0){
+                JOptionPane.showMessageDialog(null, "datos ingresados");
+                this.CargarTablaFactura();
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "error: " + ex);
+            Logger.getLogger(InternalFrame_Factura.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        int cod = parseInt(this.txtCodigo.getText());
+        int respuesta;
+        respuesta = JOptionPane.showConfirmDialog(null, "¿Desea eliminar este registro?");
+        
+        if(respuesta == JOptionPane.YES_OPTION){
+            try{
+                if(this.factura.Eliminar_Factura(cod)>0){
+                    JOptionPane.showMessageDialog(null, "Datos eliminados");
+                    this.CargarTablaFactura();
+                }
+            }catch(SQLException ex){
+                JOptionPane.showMessageDialog(null, "Error");
+            }
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
+        // TODO add your handling code here:
+        int numfac = parseInt(this.txtNumFact.getText());
+        String prod = this.cmbProducto.getSelectedItem().toString();
+        int cantidad = parseInt(this.txtCantidad.getText());
+        float precio = parseFloat(this.txtPrecio.getText());
+        try {
+            if(this.factura.Insertar_Detalle(numfac, prod, cantidad, precio)>0){
+                JOptionPane.showMessageDialog(null, "datos ingresados");
+                this.CargarDetalle();
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "error: " + ex);
+            Logger.getLogger(InternalFrame_Factura.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_btnGuardar1ActionPerformed
+
+    private void btnEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar1ActionPerformed
+        // TODO add your handling code here:
+        int cod = parseInt(this.txtCodigoDeta.getText());
+        int respuesta;
+        respuesta = JOptionPane.showConfirmDialog(null, "¿Desea eliminar este registro?");
+        
+        if(respuesta == JOptionPane.YES_OPTION){
+            try{
+                if(this.factura.Eliminar_detalle(cod)>0){
+                    JOptionPane.showMessageDialog(null, "Datos eliminados");
+                    this.CargarDetalle();
+                }
+            }catch(SQLException ex){
+                JOptionPane.showMessageDialog(null, "Error");
+            }
+        }
+    }//GEN-LAST:event_btnEliminar1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -494,7 +638,6 @@ public class InternalFrame_Factura extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private com.toedter.calendar.JDateChooser jdcFecha;

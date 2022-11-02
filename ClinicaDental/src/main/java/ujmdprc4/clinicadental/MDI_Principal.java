@@ -48,6 +48,7 @@ public class MDI_Principal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         FacturaMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
@@ -128,6 +129,11 @@ public class MDI_Principal extends javax.swing.JFrame {
                 FacturaMenuMouseClicked(evt);
             }
         });
+        FacturaMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FacturaMenuActionPerformed(evt);
+            }
+        });
 
         jMenuItem1.setText("Factura");
         jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -141,6 +147,14 @@ public class MDI_Principal extends javax.swing.JFrame {
             }
         });
         FacturaMenu.add(jMenuItem1);
+
+        jMenuItem2.setText("Imprimir Ticket");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        FacturaMenu.add(jMenuItem2);
 
         menuBar.add(FacturaMenu);
 
@@ -241,7 +255,7 @@ public class MDI_Principal extends javax.swing.JFrame {
 
     private void FacturaMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FacturaMenuMouseClicked
         // TODO add your handling code here:
-
+        
                 
     }//GEN-LAST:event_FacturaMenuMouseClicked
 
@@ -263,6 +277,24 @@ public class MDI_Principal extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void FacturaMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FacturaMenuActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_FacturaMenuActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+         InternalFrame_Ticket ticket = null;
+        try{
+            ticket = new InternalFrame_Ticket();
+        this.escritorio.add(ticket);
+        ticket.toFront();
+        ticket.show();
+        }catch(NullPointerException ex){
+            
+        }
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -310,6 +342,7 @@ public class MDI_Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuBar menuBar;
     // End of variables declaration//GEN-END:variables
 

@@ -118,5 +118,12 @@ public class Citas {
         return c.ComandoSQL("call eliminar_cita("+cod+");");
     }
     
+    public int AgendarCitaCliente(String p, String prod, String fecha) throws SQLException{
+        Conexion c = new Conexion();
+        c.EstableceConexion();
+        return c.ComandoSQL("call insertar_nueva_cita('"+p+"','"+prod+"','"+fecha+"');");
+        
+    }
+    
     
 }

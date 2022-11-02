@@ -1,0 +1,12 @@
+
+Factura Maxident
+NumFactura: 2
+Fecha: 2022-11-01
+Secretaria: Javier Bolaños
+Doctor: Mauricio Castillo
+Cliente: Gabriela Moran
+Producto: Colocacion de brackets
+Cantidad: 1
+Precio: 20.0
+Total: 20.0
+-------------------------------------------
