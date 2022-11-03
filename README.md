@@ -1,15 +1,15 @@
 # ClinicaDentalMaxident
 Proyecto aplicación de escritorio de gestión de clínica dental para la catedra programación de computadoras 4
 
-<h3> Herramientas <h3>
-Herramientas de trabajo:
-• IDE: Apache Netbeans
-• Base de datos: mysql workbench
-• Git y github
-Herramientas de gestion de tareas
-• Trello
-• Notion
-• Reuniones por google meet los fines de semana y durante la semana 
+<h3> Herramientas </h3>
+<br>Herramientas de trabajo:
+<br>• IDE: Apache Netbeans
+<br>• Base de datos: mysql workbench
+<br>• Git y github
+<br>Herramientas de gestion de tareas
+<br>• Trello
+<br>• Notion
+<br>• Reuniones por google meet los fines de semana y durante la semana 
 
 <h3> Propuesta de solucion </h3>
 https://www.canva.com/design/DAFOfrRTMmA/T5_9pDMK1Ur-1LcQiTxLYg/view?utm_content=DAFOfrRTMmA&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink
