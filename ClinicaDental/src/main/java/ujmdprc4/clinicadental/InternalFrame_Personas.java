@@ -3,8 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package ujmdprc4.clinicadental;
+<<<<<<< HEAD
 import Properties.RegistroProperties;
 import Clases.ComboCargos;
+=======
+
+import Combos.ComboCargos;
+>>>>>>> ca21546bd6d3176cfdaf026e51675909644eff99
 import Clases.Personas;
 import Conexion.Conexion;
 import static Properties.RegistroProperties.prop;
@@ -530,6 +535,7 @@ public class InternalFrame_Personas extends javax.swing.JInternalFrame {
             break;
                 
         }
+        
         this.txtNombre.setText(this.TablePersonas.getValueAt(seleccion, 1).toString());
         this.txtApellido.setText(this.TablePersonas.getValueAt(seleccion, 2).toString());
         ((JTextField)this.jdcFechaRegistro.getDateEditor().getUiComponent()).setText(this.TablePersonas.getValueAt(seleccion, 3).toString());
@@ -546,8 +552,7 @@ public class InternalFrame_Personas extends javax.swing.JInternalFrame {
             this.rdbActivo.setSelected(false);
         }
         
-        
-        
+       
     }//GEN-LAST:event_TablePersonasMouseClicked
 
 

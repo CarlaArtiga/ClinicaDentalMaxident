@@ -26,9 +26,7 @@ DROP TABLE IF EXISTS `personas`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `personas` (
   `CodPersona` int NOT NULL AUTO_INCREMENT,
-  `CodUsuarios` int NOT NULL,
   `NumCargos` int DEFAULT NULL,
-  `CodSucursal` int NOT NULL,
   `Nombre` varchar(45) DEFAULT NULL,
   `Apellido` varchar(45) DEFAULT NULL,
   `FechaNac` date DEFAULT NULL,
@@ -36,17 +34,13 @@ CREATE TABLE `personas` (
   `DUI` int DEFAULT NULL,
   `Telefono` int DEFAULT NULL,
   `Direccion` varchar(45) DEFAULT NULL,
-  `Estado` char(1) DEFAULT NULL,
+  `Estado` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`CodPersona`),
   UNIQUE KEY `DUI_UNIQUE` (`DUI`),
   UNIQUE KEY `Telefono_UNIQUE` (`Telefono`),
-  KEY `CodUsuarios_idx` (`CodUsuarios`),
-  KEY `CodSucursal_idx` (`CodSucursal`),
   KEY `NumCargos_idx` (`NumCargos`),
-  CONSTRAINT `CodSucursal` FOREIGN KEY (`CodSucursal`) REFERENCES `sucursales` (`CodSucursal`),
-  CONSTRAINT `CodUsuarios` FOREIGN KEY (`CodUsuarios`) REFERENCES `usuarios` (`CodUsuarios`),
   CONSTRAINT `fk_personas_cargo` FOREIGN KEY (`NumCargos`) REFERENCES `cargos` (`NumCargos`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -55,7 +49,7 @@ CREATE TABLE `personas` (
 
 LOCK TABLES `personas` WRITE;
 /*!40000 ALTER TABLE `personas` DISABLE KEYS */;
-INSERT INTO `personas` VALUES (1,1,1,1,'Mauricio','Castillo','2000-01-02','2022-08-10',1231228,2134789,'San Salvador','A'),(2,2,2,2,'Javier','Bolaños','2000-01-02','2022-08-10',1231558,2134586,'San Salvador','A'),(3,3,3,3,'Carla','Artiga','2000-01-02','2022-08-10',1236258,2124681,'San Salvador','A'),(4,4,4,4,'Gabriel','Lopez','2000-01-02','2022-08-10',1233258,2134585,'San Salvador','A');
+INSERT INTO `personas` VALUES (1,1,'Mauricio','Castillo','2000-01-02','2022-08-10',1231228,2134789,'San Salvador','A'),(2,2,'Javier','Bolaños','2000-01-02','2022-08-10',1231558,2134586,'San Salvador','A'),(3,3,'Carla','Artiga','2000-01-02','2022-08-10',1236258,2124681,'San Salvador','A'),(4,3,'Gabriela','Lopez','2001-12-07','2022-10-30',21548,215468,'San Salvador','D'),(14,4,'Gabriela','Moran','2001-12-07','2022-11-30',14782369,7892563,'Pinares Suiza','A'),(15,4,'Luke','Skywalker','2000-11-07','2022-10-30',5462215,45688456,'Tatooine','A'),(22,4,'Adrian','Rivera','2000-02-12','2001-12-31',147852369,78962563,'San Salvador','A'),(23,4,'David','Mendez','2002-04-18','2001-12-31',8746518,564879,'San Salvador','A'),(24,4,'Marcela','Hernandez','2001-06-13','2001-12-31',564875,8754132,'San Salvador','A');
 /*!40000 ALTER TABLE `personas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -68,4 +62,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-21 20:38:42
+-- Dump completed on 2022-11-02 12:04:40

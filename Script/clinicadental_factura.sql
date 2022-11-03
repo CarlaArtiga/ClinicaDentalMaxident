@@ -28,17 +28,11 @@ CREATE TABLE `factura` (
   `CodFactura` int NOT NULL AUTO_INCREMENT,
   `NumFactura` int DEFAULT NULL,
   `Fecha` date DEFAULT NULL,
-  `Secretaria` int DEFAULT NULL,
-  `Doctor` int DEFAULT NULL,
-  `Cliente` int DEFAULT NULL,
-  PRIMARY KEY (`CodFactura`),
-  KEY `fk_factura_secre` (`Secretaria`),
-  KEY `fk_factura_doctor` (`Doctor`),
-  KEY `fk_factura_cliente` (`Cliente`),
-  CONSTRAINT `fk_factura_cliente` FOREIGN KEY (`Cliente`) REFERENCES `personas` (`CodPersona`),
-  CONSTRAINT `fk_factura_doctor` FOREIGN KEY (`Doctor`) REFERENCES `personas` (`CodPersona`),
-  CONSTRAINT `fk_factura_secre` FOREIGN KEY (`Secretaria`) REFERENCES `personas` (`CodPersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+  `Secretaria` varchar(45) DEFAULT NULL,
+  `Doctor` varchar(45) DEFAULT NULL,
+  `Cliente` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`CodFactura`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +41,7 @@ CREATE TABLE `factura` (
 
 LOCK TABLES `factura` WRITE;
 /*!40000 ALTER TABLE `factura` DISABLE KEYS */;
-INSERT INTO `factura` VALUES (1,101,'2022-09-10',2,1,5),(2,102,'2022-09-10',2,3,5),(3,103,'2022-09-10',2,4,6);
+INSERT INTO `factura` VALUES (4,1,'2022-11-01','Javier Bolaños','Mauricio Castillo','Gabriela Moran'),(5,2,'2022-11-01','Javier Bolaños','Mauricio Castillo','Gabriela Moran'),(6,3,'2022-10-31','Javier Bolaños','Mauricio Castillo','Gabriela Moran');
 /*!40000 ALTER TABLE `factura` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-21 20:38:42
+-- Dump completed on 2022-11-02 12:04:39

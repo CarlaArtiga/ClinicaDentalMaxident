@@ -5,7 +5,7 @@
 package ujmdprc4.clinicadental;
 import Properties.RegistroProperties;
 import Clases.ClaseRegistro;
-import Clases.ComboSucursal;
+import Combos.ComboSucursal;
 import Conexion.Conexion;
 import static Properties.RegistroProperties.prop;
 import java.awt.Color;

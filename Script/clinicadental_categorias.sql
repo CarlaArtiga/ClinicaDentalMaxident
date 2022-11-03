@@ -29,7 +29,7 @@ CREATE TABLE `categorias` (
   `Categoria` varchar(45) DEFAULT NULL,
   `Descripcion` varchar(80) DEFAULT NULL,
   PRIMARY KEY (`CodCategoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `categorias` (
 
 LOCK TABLES `categorias` WRITE;
 /*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
-INSERT INTO `categorias` VALUES (1,'Ortodoncia',' Enderezar los dientes. Corregir problemas con la mordida.'),(2,'Cirugia','Operaciones quirúrgicas especializadas.'),(3,'Radiografia','Las radiografías pueden tomarse de manera digital o en una película.'),(4,'Protesis','Reemplace sus dientes por otros de manera artificial.');
+INSERT INTO `categorias` VALUES (1,'Ortodoncia',' Enderezar los dientes. Corregir problemas con la mordida.'),(2,'Cirugia','Operaciones quirúrgicas especializadas.'),(3,'Radiografia','Las radiografías pueden tomarse de manera digital o en una película.'),(4,'Protesis','Reemplace sus dientes por otros de manera artificial.'),(5,'Bien','Producto para la venta');
 /*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-21 20:38:42
+-- Dump completed on 2022-11-02 12:04:40

@@ -18,30 +18,32 @@ USE `clinicadental`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `facturadetalle`
+-- Table structure for table `usuarioxpersona`
 --
 
-DROP TABLE IF EXISTS `facturadetalle`;
+DROP TABLE IF EXISTS `usuarioxpersona`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `facturadetalle` (
-  `CodFactDeta` int NOT NULL AUTO_INCREMENT,
-  `NumFactura` int DEFAULT NULL,
-  `Producto` varchar(45) DEFAULT NULL,
-  `Cantidad` int DEFAULT NULL,
-  `Precio` float DEFAULT NULL,
-  PRIMARY KEY (`CodFactDeta`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `usuarioxpersona` (
+  `idUsuarioxPersona` int NOT NULL AUTO_INCREMENT,
+  `CodUsuario` int DEFAULT NULL,
+  `CodPersona` int DEFAULT NULL,
+  PRIMARY KEY (`idUsuarioxPersona`),
+  KEY `fk_userxpers_codusuario` (`CodUsuario`),
+  KEY `fk_sucxpers_codpers` (`CodPersona`),
+  CONSTRAINT `fk_sucxpers_codpers` FOREIGN KEY (`CodPersona`) REFERENCES `personas` (`CodPersona`),
+  CONSTRAINT `fk_userxpers_codpers` FOREIGN KEY (`CodPersona`) REFERENCES `personas` (`CodPersona`),
+  CONSTRAINT `fk_userxpers_codusuario` FOREIGN KEY (`CodUsuario`) REFERENCES `usuarios` (`CodUsuarios`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `facturadetalle`
+-- Dumping data for table `usuarioxpersona`
 --
 
-LOCK TABLES `facturadetalle` WRITE;
-/*!40000 ALTER TABLE `facturadetalle` DISABLE KEYS */;
-INSERT INTO `facturadetalle` VALUES (4,1,'Colocacion de brackets',1,20),(5,2,'Colocacion de brackets',1,20),(6,3,'Colocacion de brackets',1,20.5);
-/*!40000 ALTER TABLE `facturadetalle` ENABLE KEYS */;
+LOCK TABLES `usuarioxpersona` WRITE;
+/*!40000 ALTER TABLE `usuarioxpersona` DISABLE KEYS */;
+/*!40000 ALTER TABLE `usuarioxpersona` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-02 12:04:40
+-- Dump completed on 2022-11-02 12:04:39

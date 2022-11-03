@@ -4,10 +4,21 @@
  */
 package Conexion;
 
+import Clases.Citas;
 import Clases.ClaseRegistro;
-import Clases.ComboCargos;
-import Clases.ComboSucursal;
+import Combos.ComboCargos;
+import Combos.ComboCategorias;
+import Combos.ComboCliente;
+import Combos.ComboClienteCita;
+import Combos.ComboDentista;
+import Combos.ComboDentistaFact;
+import Combos.ComboProducto;
+import Combos.ComboSecretario;
+import Combos.ComboSucursal;
+import Clases.Factura;
 import Clases.Personas;
+import Clases.Productos;
+import Combos.ComboSecreFact;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -59,51 +70,209 @@ public class Conexion {
     public int ComandoSQL(String query) throws SQLException {
         return this.stm.executeUpdate(query);
     }
-    
-    public ArrayList GetListaSucursal(){
+
+    public ArrayList GetListaSucursal() {
         ArrayList sucursal = new ArrayList();
         ComboSucursal suc;
         ClaseRegistro registro;
         Statement consulta;
         ResultSet resultado;
-        try{
+        try {
             registro = new ClaseRegistro();
             consulta = conectar.createStatement();
             resultado = consulta.executeQuery(registro.getSucursal());
-            while(resultado.next()){
+            while (resultado.next()) {
                 suc = new ComboSucursal();
                 suc.setCd(resultado.getInt("CodSucursal"));
                 suc.setNom(resultado.getString("Sucursal"));
                 sucursal.add(suc);
             }
-        }catch(SQLException ex){
+        } catch (SQLException ex) {
         }
         return sucursal;
-        
+
     }
-    
-    public ArrayList GetListaCargos(){
+
+    public ArrayList GetListaCargos() {
         ArrayList cargos = new ArrayList();
         ComboCargos carg;
         Personas persona;
         Statement consulta;
         ResultSet resultado;
-        try{
+        try {
             persona = new Personas();
             consulta = conectar.createStatement();
             resultado = consulta.executeQuery(persona.getSelect_Cargos());
-            while(resultado.next()){
+            while (resultado.next()) {
                 carg = new ComboCargos();
                 carg.setCodCargos(resultado.getInt("NumCargos"));
                 carg.setCargos(resultado.getString("Cargos"));
                 cargos.add(carg);
             }
-        }catch(SQLException ex){
+        } catch (SQLException ex) {
         }
         return cargos;
     }
-     
 
+    public ArrayList GetListaClientes() {
+        ArrayList clientes = new ArrayList();
+        ComboCliente cliente;
+        Citas cita;
+        Statement consulta;
+        ResultSet resultado;
+        try {
+            cita = new Citas();
+            consulta = conectar.createStatement();
+            resultado = consulta.executeQuery(cita.getSelect_Cliente());
+            while (resultado.next()) {
+                cliente = new ComboCliente();
+                cliente.setCliente(resultado.getString("Cliente"));
+                clientes.add(cliente);
+            }
+        } catch (SQLException ex) {
+        }
+        return clientes;
+    }
+
+    public ArrayList GetListaProducto() {
+        ArrayList producto = new ArrayList();
+        ComboProducto prod;
+        Citas cita;
+        Statement consulta;
+        ResultSet resultado;
+        try {
+            cita = new Citas();
+            consulta = conectar.createStatement();
+            resultado = consulta.executeQuery(cita.getSelect_Producto());
+            while (resultado.next()) {
+                prod = new ComboProducto();
+                prod.setProducto(resultado.getString("producto"));
+                producto.add(prod);
+            }
+        } catch (SQLException ex) {
+        }
+        return producto;
+    }
+
+    public ArrayList GetListaDentista() {
+        ArrayList dentista = new ArrayList();
+        ComboDentista dent;
+        Citas cita;
+        Statement consulta;
+        ResultSet resultado;
+        try {
+            cita = new Citas();
+            consulta = conectar.createStatement();
+            resultado = consulta.executeQuery(cita.getSelect_Dentista());
+            while (resultado.next()) {
+                dent = new ComboDentista();
+                dent.setDentista(resultado.getString("Dentista"));
+                dentista.add(dent);
+            }
+        } catch (SQLException ex) {
+        }
+        return dentista;
+    }
     
+    public ArrayList GetListaSecretaria(){
+        ArrayList secretaria = new ArrayList();
+        ComboSecretario sec;
+        Citas cita;
+        Statement consulta;
+        ResultSet resultado;
+        try {
+            cita = new Citas();
+            consulta = conectar.createStatement();
+            resultado = consulta.executeQuery(cita.getSelect_Secretario());
+            while (resultado.next()) {
+                sec = new ComboSecretario();
+                sec.setSecretario(resultado.getString("Secretario"));
+                secretaria.add(sec);
+            }
+        } catch (SQLException ex) {
+        }
+        return secretaria;
+    }
+
+    public ArrayList GetListaCategoria() {
+        ArrayList categoria = new ArrayList();
+        ComboCategorias cat;
+        Productos prod;
+        Statement consulta;
+        ResultSet resultado;
+        try {
+            prod = new Productos();
+            consulta = conectar.createStatement();
+            resultado = consulta.executeQuery(prod.getSelect_Categ());
+            while (resultado.next()) {
+                cat = new ComboCategorias();
+                cat.setId(resultado.getInt("CodCategoria"));
+                cat.setCategoria(resultado.getString("Categoria"));
+                categoria.add(cat);
+            }
+        } catch (SQLException ex) {
+        }
+        return categoria;
+    }
+    
+    public ArrayList GetListaClientesFact() {
+        ArrayList clientes = new ArrayList();
+        ComboClienteCita cliente;
+        Factura factura;
+        Statement consulta;
+        ResultSet resultado;
+        try {
+            factura = new Factura();
+            consulta = conectar.createStatement();
+            resultado = consulta.executeQuery(factura.getSelect_Cliente());
+            while (resultado.next()) {
+                cliente = new ComboClienteCita();
+                cliente.setCliente(resultado.getString("Cliente"));
+                clientes.add(cliente);
+            }
+        } catch (SQLException ex) {
+        }
+        return clientes;
+    }
+    
+     public ArrayList GetListaDentistaFact() {
+        ArrayList dentista = new ArrayList();
+        ComboDentistaFact dent;
+        Factura factura;
+        Statement consulta;
+        ResultSet resultado;
+        try {
+            factura = new Factura();
+            consulta = conectar.createStatement();
+            resultado = consulta.executeQuery(factura.getSelect_Dentista());
+            while (resultado.next()) {
+                dent = new ComboDentistaFact();
+                dent.setDentista(resultado.getString("Dentista"));
+                dentista.add(dent);
+            }
+        } catch (SQLException ex) {
+        }
+        return dentista;
+    }
+     
+     public ArrayList GetListaSecreFact() {
+        ArrayList secretario = new ArrayList();
+        ComboSecreFact secre;
+        Factura factura;
+        Statement consulta;
+        ResultSet resultado;
+        try {
+            factura = new Factura();
+            consulta = conectar.createStatement();
+            resultado = consulta.executeQuery(factura.getSelect_Secretario());
+            while (resultado.next()) {
+                secre = new ComboSecreFact();
+                secre.setSecretario(resultado.getString("Secretario"));
+                secretario.add(secre);
+            }
+        } catch (SQLException ex) {
+        }
+        return secretario;
+    }
 
 }

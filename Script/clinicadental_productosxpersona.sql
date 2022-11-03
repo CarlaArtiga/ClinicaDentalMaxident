@@ -27,13 +27,13 @@ DROP TABLE IF EXISTS `productosxpersona`;
 CREATE TABLE `productosxpersona` (
   `CodProdPers` int NOT NULL AUTO_INCREMENT,
   `CodProducto` int DEFAULT NULL,
-  `CodPersona` int DEFAULT NULL,
+  `Persona` int DEFAULT NULL,
   PRIMARY KEY (`CodProdPers`),
   KEY `CodProducto_idx` (`CodProducto`),
-  KEY `fk_prodxper_codpers` (`CodPersona`),
-  CONSTRAINT `fk_prodxper_codpers` FOREIGN KEY (`CodPersona`) REFERENCES `personas` (`CodPersona`),
+  KEY `fk_prodxper_codpers` (`Persona`),
+  CONSTRAINT `fk_prodxper_codpers` FOREIGN KEY (`Persona`) REFERENCES `personas` (`CodPersona`),
   CONSTRAINT `fk_prodxper_codprod` FOREIGN KEY (`CodProducto`) REFERENCES `productos` (`CodProducto`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `productosxpersona` (
 
 LOCK TABLES `productosxpersona` WRITE;
 /*!40000 ALTER TABLE `productosxpersona` DISABLE KEYS */;
-INSERT INTO `productosxpersona` VALUES (1,1,1),(2,1,3),(3,2,4),(4,2,3);
+INSERT INTO `productosxpersona` VALUES (1,1,1),(2,2,1),(3,3,3),(4,4,1),(5,5,3);
 /*!40000 ALTER TABLE `productosxpersona` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-21 20:38:42
+-- Dump completed on 2022-11-02 12:04:39

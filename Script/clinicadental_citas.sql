@@ -18,30 +18,34 @@ USE `clinicadental`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `facturadetalle`
+-- Table structure for table `citas`
 --
 
-DROP TABLE IF EXISTS `facturadetalle`;
+DROP TABLE IF EXISTS `citas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `facturadetalle` (
-  `CodFactDeta` int NOT NULL AUTO_INCREMENT,
-  `NumFactura` int DEFAULT NULL,
+CREATE TABLE `citas` (
+  `CodCita` int NOT NULL AUTO_INCREMENT,
+  `Persona` varchar(100) DEFAULT NULL,
   `Producto` varchar(45) DEFAULT NULL,
-  `Cantidad` int DEFAULT NULL,
-  `Precio` float DEFAULT NULL,
-  PRIMARY KEY (`CodFactDeta`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
+  `FechaHora` datetime DEFAULT NULL,
+  `Descripcion` varchar(100) DEFAULT NULL,
+  `Dentista` varchar(45) DEFAULT NULL,
+  `Secretario` varchar(45) DEFAULT NULL,
+  `Estado` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`CodCita`),
+  KEY `fk_citas_codprod` (`Producto`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `facturadetalle`
+-- Dumping data for table `citas`
 --
 
-LOCK TABLES `facturadetalle` WRITE;
-/*!40000 ALTER TABLE `facturadetalle` DISABLE KEYS */;
-INSERT INTO `facturadetalle` VALUES (4,1,'Colocacion de brackets',1,20),(5,2,'Colocacion de brackets',1,20),(6,3,'Colocacion de brackets',1,20.5);
-/*!40000 ALTER TABLE `facturadetalle` ENABLE KEYS */;
+LOCK TABLES `citas` WRITE;
+/*!40000 ALTER TABLE `citas` DISABLE KEYS */;
+INSERT INTO `citas` VALUES (7,'Gabriela Moran','Colocacion de brackets','2022-10-31 11:26:08','ortodoncia mensual','Mauricio Castillo','Javier Bolaños','Atendido'),(8,'Gabriela Moran','Colocacion de brackets','2022-10-31 11:26:08','limpieza mensual','Mauricio Castillo','Javier Bolaños','Atendido'),(9,'Daniela Lopez','Colocacion de brackets','2022-11-02 02:07:19',NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `citas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-02 12:04:40
+-- Dump completed on 2022-11-02 12:04:39
