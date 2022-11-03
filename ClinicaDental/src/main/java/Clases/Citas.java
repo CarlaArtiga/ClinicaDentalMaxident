@@ -124,5 +124,5 @@ public class Citas {
         return c.ComandoSQL("call insertar_nueva_cita('"+p+"','"+prod+"','"+fecha+"');");
         
     }
-    
+    ;
 }
