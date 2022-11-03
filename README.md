@@ -37,4 +37,6 @@ https://www.canva.com/design/DAFOfrRTMmA/T5_9pDMK1Ur-1LcQiTxLYg/view?utm_content
 <br>•https://brazen-stallion-ac8.notion.site/Semana-10-72e9a6e749284eecbf979310692f555e
 <br>•https://brazen-stallion-ac8.notion.site/Semana-11-3318b0c6964a46989cd956af8f5cac31
 <br>•https://brazen-stallion-ac8.notion.site/Semana-12-3d5a846caa3a41978d1643a62513baa5
+<br>Manual técnico
+https://www.canva.com/design/DAFQ3DVjm-E/Q8pg32MCwNg6GMFOyQqYbg/view?utm_content=DAFQ3DVjm-E&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink
 
