@@ -32,4 +32,9 @@ https://www.canva.com/design/DAFOfrRTMmA/T5_9pDMK1Ur-1LcQiTxLYg/view?utm_content
 <h3>Documentos  </h3>
 <br>Tablero trello 
 <br>https://trello.com/b/qrqGxe6U/clinica-dental
+<br>Agenda en notion
+<br>• https://brazen-stallion-ac8.notion.site/Semana-9-404aae7e52784e20af83ebbb91ab4c4c
+<br>•https://brazen-stallion-ac8.notion.site/Semana-10-72e9a6e749284eecbf979310692f555e
+<br>•https://brazen-stallion-ac8.notion.site/Semana-11-3318b0c6964a46989cd956af8f5cac31
+<br>•https://brazen-stallion-ac8.notion.site/Semana-12-3d5a846caa3a41978d1643a62513baa5
 
