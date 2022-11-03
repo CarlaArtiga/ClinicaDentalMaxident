@@ -49,7 +49,7 @@
                           <Component id="cmbCargos" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNombre" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="txtNombre" max="32767" attributes="0"/>
                       </Group>
@@ -89,7 +89,7 @@
               </Group>
               <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" pref="762" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="803" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="btnInsertar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
@@ -120,7 +120,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
@@ -219,7 +219,7 @@
     </Container>
     <Component class="javax.swing.JLabel" name="lblCargos">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cargo: "/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cmbCargos">
@@ -235,37 +235,37 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="lblNombre">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre:"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNombre">
     </Component>
     <Component class="javax.swing.JLabel" name="lblApellido">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Apellido:"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtApellido">
     </Component>
     <Component class="javax.swing.JLabel" name="lblFechaNac">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Fecha de Nacimiento:"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="jdcFechaNac">
     </Component>
     <Component class="javax.swing.JLabel" name="lblFechaReg">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Fecha de Registro:"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="jdcFechaRegistro">
     </Component>
     <Component class="javax.swing.JLabel" name="lblDUI">
       <Properties>
-        <Property name="text" type="java.lang.String" value="DUI:"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDUI">
@@ -275,14 +275,14 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblDir">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Direccion:"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDir">
     </Component>
     <Component class="javax.swing.JLabel" name="lblEstado">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Estado:"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="rdbActivo">
@@ -327,7 +327,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblTelefono">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Telefono:"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtTel">

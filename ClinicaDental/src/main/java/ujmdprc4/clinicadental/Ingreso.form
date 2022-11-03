@@ -54,7 +54,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="35" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="168" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -104,7 +104,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Bienvenido a Maxident"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtUsuario">
@@ -114,14 +114,14 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblUsuario">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Usuario"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="txtClave">
     </Component>
     <Component class="javax.swing.JLabel" name="lblClave">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Clave"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="chkMostrarClave">
@@ -137,7 +137,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnIngresar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ingresar"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIngresarActionPerformed"/>
@@ -145,7 +145,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnLimpiar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Limpiar"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimpiarActionPerformed"/>
@@ -153,7 +153,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblVerRegistro">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#xbf;No tienes cuenta? Registrate"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblVerRegistroMouseClicked"/>
@@ -161,7 +161,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblSalir">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Salir"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblSalirMouseClicked"/>

@@ -176,12 +176,12 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="33" red="33" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Bienvenido a Maxident"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblSucursal">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Elija la sucursal: "/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cmbSucursal">
@@ -206,12 +206,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblNombre">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblApellido">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Apellido"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="dcRegistro">
@@ -222,7 +222,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblFechaRegistro">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Fecha Registro"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="dcFechaNac">
@@ -232,40 +232,40 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblFechaNAc">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Fecha de nacimiento"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDUI">
     </Component>
     <Component class="javax.swing.JLabel" name="lblDUI">
       <Properties>
-        <Property name="text" type="java.lang.String" value="DUI"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtTelefono">
     </Component>
     <Component class="javax.swing.JLabel" name="lblTelefono">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Telefono"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtUsuario">
     </Component>
     <Component class="javax.swing.JLabel" name="lblUsuario">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Usuario"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblClave">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Clave"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="pfClave">
     </Component>
     <Component class="javax.swing.JButton" name="btnRegistro">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Registrarse"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistroActionPerformed"/>
@@ -273,7 +273,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnLimpiar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Limpiar"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimpiarActionPerformed"/>
@@ -292,7 +292,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblCerrar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Salir"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblCerrarMouseClicked"/>
@@ -300,7 +300,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblVerIngreso">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#xbf;Ya tienes una cuenta? Ingresa aqui"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblVerIngresoMouseClicked"/>
@@ -310,7 +310,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblDireccion">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Direccion"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
   </SubComponents>
