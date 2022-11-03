@@ -287,7 +287,7 @@
     </Component>
     <Component class="javax.swing.JRadioButton" name="rdbActivo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Activo"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbActivoActionPerformed"/>
@@ -295,7 +295,7 @@
     </Component>
     <Component class="javax.swing.JRadioButton" name="rdbDesactivo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Desactivo"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbDesactivoActionPerformed"/>
@@ -303,7 +303,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnInsertar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Insertar"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInsertarActionPerformed"/>
@@ -311,7 +311,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnModificar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Modificar"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModificarActionPerformed"/>
@@ -319,7 +319,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnEliminar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Eliminar"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarActionPerformed"/>
@@ -334,7 +334,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnLimpiar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Limpiar"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimpiarActionPerformed"/>

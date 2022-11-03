@@ -84,7 +84,7 @@
                       <EmptySpace pref="33" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTicket" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="btnGenerarTicket" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
@@ -100,7 +100,7 @@
               <Component id="jScrollPane1" min="-2" pref="175" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblTicket" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnGenerarTicket" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -124,9 +124,9 @@
                   <Component id="lblDoctor" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lblCLIENTE" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblCliente" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -178,14 +178,14 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="lblTicket">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ticket"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNum">
       <Properties>
-        <Property name="text" type="java.lang.String" value="NumFactura:"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNumFactura">
@@ -197,7 +197,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblFECHA">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Fecha:"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblFecha">
@@ -209,7 +209,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblSECRE">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Secretaria:"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblSecretaria">
@@ -221,7 +221,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblDOC">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Doctor:"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblDoctor">
@@ -233,7 +233,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblCLIENTE">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cliente:"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblCliente">
@@ -245,7 +245,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblPROD">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Producto:"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblProducto">
@@ -257,7 +257,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblCANT">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cantidad:"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblCantidad">
@@ -269,7 +269,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblPRECIO">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Precio:"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblPrecio">
@@ -281,7 +281,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblTOTAL">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Total:"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblTotal">
@@ -293,7 +293,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnGenerarTicket">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Generar Ticket"/>
+        <Property name="text" type="java.lang.String" value="."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGenerarTicketActionPerformed"/>

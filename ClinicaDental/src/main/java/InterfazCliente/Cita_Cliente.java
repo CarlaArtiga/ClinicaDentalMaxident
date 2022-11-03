@@ -3,11 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package InterfazCliente;
-
+import Properties.RegistroProperties;
 import Clases.Citas;
 import Clases.ClaseIngreso;
 import Combos.ComboProducto;
 import Conexion.Conexion;
+import static Properties.RegistroProperties.prop;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -22,11 +24,18 @@ import javax.swing.JTextField;
  */
 public class Cita_Cliente extends javax.swing.JFrame {
     Citas cita;
+    RegistroProperties rp;
     /**
      * Creates new form Cita_Cliente
      */
     public Cita_Cliente() {
+        try {
+            rp = new RegistroProperties();
+        } catch (IOException ex) {
+            Logger.getLogger(Cita_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
         initComponents();
+        CargarTexto();
         this.setSize(400, 400);
         LlenarComboProducto();
         cita = new Citas();
@@ -57,38 +66,47 @@ public class Cita_Cliente extends javax.swing.JFrame {
         
     }
     @SuppressWarnings("unchecked")
+    
+    public void CargarTexto(){
+        this.lblTituloCita.setText(prop.getProperty("lblTituloCita"));
+        this.lblNomApe.setText(prop.getProperty("lblNomApe"));
+        this.lblConsulta.setText(prop.getProperty("lblConsulta"));
+        this.lblFechaHora.setText(prop.getProperty("lblFechaHora"));
+        this.btnAgendar.setText(prop.getProperty("btnAgendar"));
+        this.btnLimpiar.setText(prop.getProperty("btnLimpiar"));
+    }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblTituloCita = new javax.swing.JLabel();
+        lblNomApe = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        lblConsulta = new javax.swing.JLabel();
         cmbProducto = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
+        lblFechaHora = new javax.swing.JLabel();
         jdcFecha = new com.toedter.calendar.JDateChooser();
         btnAgendar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel1.setText("Agendar Cita");
+        lblTituloCita.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lblTituloCita.setText(".");
 
-        jLabel2.setText("Nombre y Apellido");
+        lblNomApe.setText(".");
 
-        jLabel3.setText("Consulta:");
+        lblConsulta.setText(".");
 
-        jLabel4.setText("Fecha y Hora:");
+        lblFechaHora.setText(".");
 
-        btnAgendar.setText("Agendar");
+        btnAgendar.setText(".");
         btnAgendar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgendarActionPerformed(evt);
             }
         });
 
-        btnLimpiar.setText("Limpiar");
+        btnLimpiar.setText(".");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,11 +119,11 @@ public class Cita_Cliente extends javax.swing.JFrame {
                             .addGap(32, 32, 32)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
+                                    .addComponent(lblConsulta)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(cmbProducto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(jLabel4)
+                                    .addComponent(lblFechaHora)
                                     .addGap(18, 18, 18)
                                     .addComponent(jdcFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(layout.createSequentialGroup()
@@ -115,30 +133,30 @@ public class Cita_Cliente extends javax.swing.JFrame {
                             .addComponent(btnLimpiar))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGap(25, 25, 25)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNomApe, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(103, 103, 103)
-                        .addComponent(jLabel1)))
+                        .addComponent(lblTituloCita)))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jLabel1)
+                .addComponent(lblTituloCita)
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(lblNomApe)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(lblConsulta)
                     .addComponent(cmbProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4)
+                    .addComponent(lblFechaHora)
                     .addComponent(jdcFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -204,11 +222,11 @@ public class Cita_Cliente extends javax.swing.JFrame {
     private javax.swing.JButton btnAgendar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JComboBox<String> cmbProducto;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private com.toedter.calendar.JDateChooser jdcFecha;
+    private javax.swing.JLabel lblConsulta;
+    private javax.swing.JLabel lblFechaHora;
+    private javax.swing.JLabel lblNomApe;
+    private javax.swing.JLabel lblTituloCita;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

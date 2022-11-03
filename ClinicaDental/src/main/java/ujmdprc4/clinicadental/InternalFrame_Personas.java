@@ -3,13 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package ujmdprc4.clinicadental;
-<<<<<<< HEAD
+
 import Properties.RegistroProperties;
-import Clases.ComboCargos;
-=======
+import Combos.ComboCargos;
+
 
 import Combos.ComboCargos;
->>>>>>> ca21546bd6d3176cfdaf026e51675909644eff99
+
 import Clases.Personas;
 import Conexion.Conexion;
 import static Properties.RegistroProperties.prop;
@@ -97,6 +97,8 @@ public class InternalFrame_Personas extends javax.swing.JInternalFrame {
         this.lblTelefono.setText(prop.getProperty("lblTelefono"));
         this.lblDir.setText(prop.getProperty("lblDir"));
         this.lblEstado.setText(prop.getProperty("lblEstado"));
+        this.rdbActivo.setText(prop.getProperty("rdbActivo"));
+        this.rdbDesactivo.setText(prop.getProperty("rdbDesactivo"));
         this.btnInsertar.setText(prop.getProperty("btnInsertar"));
         this.btnModificar.setText(prop.getProperty("btnModificar"));
         this.btnEliminar.setText(prop.getProperty("btnEliminar"));
@@ -185,35 +187,35 @@ public class InternalFrame_Personas extends javax.swing.JInternalFrame {
 
         lblEstado.setText(".");
 
-        rdbActivo.setText("Activo");
+        rdbActivo.setText(".");
         rdbActivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdbActivoActionPerformed(evt);
             }
         });
 
-        rdbDesactivo.setText("Desactivo");
+        rdbDesactivo.setText(".");
         rdbDesactivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdbDesactivoActionPerformed(evt);
             }
         });
 
-        btnInsertar.setText("Insertar");
+        btnInsertar.setText(".");
         btnInsertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInsertarActionPerformed(evt);
             }
         });
 
-        btnModificar.setText("Modificar");
+        btnModificar.setText(".");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModificarActionPerformed(evt);
             }
         });
 
-        btnEliminar.setText("Eliminar");
+        btnEliminar.setText(".");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -222,7 +224,7 @@ public class InternalFrame_Personas extends javax.swing.JInternalFrame {
 
         lblTelefono.setText(".");
 
-        btnLimpiar.setText("Limpiar");
+        btnLimpiar.setText(".");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
