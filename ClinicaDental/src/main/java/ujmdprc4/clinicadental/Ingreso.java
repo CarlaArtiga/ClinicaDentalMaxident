@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package ujmdprc4.clinicadental;
-
+import Properties.RegistroProperties;
 import Clases.ClaseIngreso;
 import Conexion.Conexion;
 import InterfazCliente.Cita_Cliente;
@@ -31,9 +31,13 @@ import javax.swing.JOptionPane;
 public class Ingreso extends javax.swing.JFrame {
 
     ClaseIngreso ingresar;
+
+    RegistroProperties rp;
+
     MDI_Principal mdi;
     Cita_Cliente citacliente;
     Cita_Cliente persona;
+
 
     /**
      * Creates new form Ingreso
@@ -41,12 +45,25 @@ public class Ingreso extends javax.swing.JFrame {
     public Ingreso() {
 
         ingresar = new ClaseIngreso();
+
+        
+        try {
+            rp = new RegistroProperties();
+        } catch (IOException ex) {
+            Logger.getLogger(Ingreso.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //initComponents();
+        
+        //getContentPane().setBackground(new Color(131,207,227));
+
         mdi = new MDI_Principal();
         citacliente = new Cita_Cliente();
         persona = new Cita_Cliente();
 
         initComponents();
+        CargarTexto();
         getContentPane().setBackground(new Color(131, 207, 227));
+
         Conexion c = new Conexion();
         c.EstableceConexion();
 
@@ -59,11 +76,26 @@ public class Ingreso extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
 
+    
+    public void CargarTexto(){
+        this.lblTitulo.setText(prop.getProperty("lblTitulo"));
+        this.lblUsuario.setText(prop.getProperty("lblUsuario"));
+        this.lblClave.setText(prop.getProperty("lblClave"));
+        this.btnIngresar.setText(prop.getProperty("btnIngresar"));
+        this.btnLimpiar.setText(prop.getProperty("btnLimpiar"));
+        this.lblVerRegistro.setText(prop.getProperty("lblVerRegistro"));
+        this.lblSalir.setText(prop.getProperty("lblSalir"));
+    }
+    
+    
+
+
+
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         lblUsuario = new javax.swing.JLabel();
         txtClave = new javax.swing.JPasswordField();
@@ -77,8 +109,8 @@ public class Ingreso extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setText("Bienvenido a Maxident");
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblTitulo.setText(".");
 
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,9 +118,9 @@ public class Ingreso extends javax.swing.JFrame {
             }
         });
 
-        lblUsuario.setText("Usuario");
+        lblUsuario.setText(".");
 
-        lblClave.setText("Clave");
+        lblClave.setText(".");
 
         chkMostrarClave.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         chkMostrarClave.setText("Mostrar");
@@ -98,28 +130,28 @@ public class Ingreso extends javax.swing.JFrame {
             }
         });
 
-        btnIngresar.setText("Ingresar");
+        btnIngresar.setText(".");
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIngresarActionPerformed(evt);
             }
         });
 
-        btnLimpiar.setText("Limpiar");
+        btnLimpiar.setText(".");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
             }
         });
 
-        lblVerRegistro.setText("¿No tienes cuenta? Registrate");
+        lblVerRegistro.setText(".");
         lblVerRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblVerRegistroMouseClicked(evt);
             }
         });
 
-        lblSalir.setText("Salir");
+        lblSalir.setText(".");
         lblSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblSalirMouseClicked(evt);
@@ -143,7 +175,7 @@ public class Ingreso extends javax.swing.JFrame {
                                         .addComponent(chkMostrarClave))
                                     .addComponent(lblUsuario)
                                     .addComponent(txtUsuario)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtClave)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(76, 76, 76)
@@ -153,7 +185,7 @@ public class Ingreso extends javax.swing.JFrame {
                                         .addComponent(btnIngresar)
                                         .addGap(18, 18, 18)
                                         .addComponent(btnLimpiar)))))
-                        .addGap(0, 35, Short.MAX_VALUE))
+                        .addGap(0, 168, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lblSalir)))
@@ -163,7 +195,7 @@ public class Ingreso extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(jLabel1)
+                .addComponent(lblTitulo)
                 .addGap(39, 39, 39)
                 .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -322,9 +354,9 @@ public class Ingreso extends javax.swing.JFrame {
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JCheckBox chkMostrarClave;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblClave;
     private javax.swing.JLabel lblSalir;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel lblVerRegistro;
     private javax.swing.JPasswordField txtClave;

@@ -33,7 +33,7 @@ public final class RegistroProperties {
 
     public void leerPropiedades() throws FileNotFoundException, IOException {
         //is = new FileInputStream(System.getProperty("user.dir") + "\\src\\propiedades\\propiedades.properties");   
-        is = new FileInputStream(System.getProperty("Propiedades.properties"));
+        is = new FileInputStream(System.getProperty("user.dir") + "\\Propiedades.properties");
         //is = new FileInputStream(System.getProperty("Propiedades.properties"));    
         prop.load(is);       
     }    
